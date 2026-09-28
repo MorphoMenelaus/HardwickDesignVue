@@ -1,11 +1,26 @@
+<script setup>
+import { inject } from 'vue';
+import CarouselHeadlines from '@/components/CarouselHeadlines.vue';
+import ProfessionalProfile from '@/components/ProfessionalProfile.vue';
+const copyright = inject('copyright');
+</script>
 <template>
-
 	<main>
-		<div class="about text-center">
-			<h1>This is an about page</h1>
+		<CarouselHeadlines />
+		<div id="page-layout" class="about">
+			<h1 class="amaranth text-center">About Chris Hardwick</h1>
+			<ProfessionalProfile />
 		</div>
 	</main>
-
 </template>
 
-<style scoped></style>
+<style scoped>
+.about {
+	margin: 1em auto;
+	padding: 1em;
+}
+
+.copyright {
+	margin-top: 0.5em;
+}
+</style>

@@ -1,6 +1,21 @@
 @import './base.css';
 
-a,
+#view {
+	/* margin-bottom: 4em; */
+	background: linear-gradient(rgb(114, 168, 190), rgb(219, 240, 219) 90%);
+	position: relative;
+	box-shadow: rgb(18, 65, 135) 0px 4px 10px 1px;
+	min-height: calc(100vh - 14em);
+	overflow: hidden;
+	border-bottom: 2px solid red;
+	z-index: 1;
+}
+
+#page-layout {
+	width: 95%;
+	margin: auto;
+}
+
 .green {
 	text-decoration: none;
 	color: hsla(160, 100%, 37%, 1);
@@ -57,18 +72,40 @@ a,
 	opacity: 0;
 }
 
-@media (hover: hover) {
+/* @media (hover: hover) {
 	a:hover {
 		background-color: hsla(160, 100%, 37%, 0.2);
 	}
-}
+} */
 
 @media (max-width: 767px) {}
 
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+	#page-layout {
+		width: 90%;
+	}
+}
 
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+	#page-layout {
+		width: 85%;
+	}
+}
 
-@media (min-width: 1200px) {}
+@media (min-width: 1024px) {
+	#page-layout {
+		width: 80%;
+	}
+}
 
-@media (min-width: 1920px) {}
+@media (min-width: 1200px) {
+	#page-layout {
+		width: 75%;
+	}
+}
+
+@media (min-width: 1920px) {
+	#page-layout {
+		width: 70%;
+	}
+}

@@ -1,44 +1,84 @@
 <script setup>
-import MainNavbar from '@/components/MainNavbar.vue'
+// import MainNavbar from '@/components/MainNavbar.vue';
 
 defineProps({
-  isMobile: Boolean,
-})
+	isMobile: Boolean,
+});
 </script>
 
 <template>
-  <header id="header">
-    <RouterLink to="/" title="Home" class="home-icon">
-      <img alt="Vue logo" class="logo" src="/icons/vue-logo.svg" />
-    </RouterLink>
+	<header id="header">
+		<RouterLink to="/" title="Home" class="home-icon logo">
+			<picture>
+				<source type="image/webp" srcset="/icons/CSHorb-0border-256.webp" />
+				<source type="image/png" srcset="/icons/CSHorb-0border-256.png" />
+				<img src="/icons/CSHorb-0border-256.png" class="logo" alt="Hardwick Web Design Home" />
+			</picture>
+		</RouterLink>
+		<RouterLink to="/" title="Home">
+			<h1 class="header-h1 amaranth">Hardwick Web Design</h1>
+		</RouterLink>
+		<a href="https://linkedin.com/in/cs-hardwick" class="linkedin" title="Chris Hardwick on LinkedIn" target="_blank" rel="noreferrer">
+			<picture>
+				<source type="image/webp" srcset="/icons/LinkedIn_logo_initials.webp" />
+				<source type="image/png" srcset="/icons/LinkedIn_logo_initials.png" />
+				<img src="/icons/LinkedIn_logo_initials.png" class="logo" alt="Chris Hardwick on LinkedIn" />
+			</picture>
+		</a>
 
-    <MainNavbar :isMobile="isMobile" />
-  </header>
+		<!-- <MainNavbar :isMobile="isMobile" /> -->
+	</header>
 </template>
 
 <style scoped>
-#header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 10em;
-  padding: 1em;
-  overflow: hidden;
-  background-color: rgb(2 6 24);
-  background-image: linear-gradient(rgb(2 6 24), rgb(15 32 113) 90%);
-  border-bottom: 1px rgb(2 6 24) solid;
-  display: flex;
-  justify-content: center;
+header {
+	background-color: #79c6ec;
+	background-image: url('/img/textureBG.webp');
+	background-image: image-set(url('/img/textureBG.webp') type('image/webp'), url('/img/textureBG.jpg') type('image/jpeg'));
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
-#header .home-icon {
-  margin-right: 2em;
+#header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1em;
+	overflow: hidden;
+}
+
+h1 {
+	color: var(--vt-c-text-light-3);
+	font-size: 3em;
+	font-weight: bold;
+	line-height: 1.8em;
+	text-transform: uppercase;
+}
+
+.home-icon {
+	margin-right: 2em;
+}
+
+.linkedin {
+	margin-left: 2em;
 }
 
 .logo {
-  width: 8em;
-  height: 8em;
-  object-fit: contain;
+	width: 5em;
+	height: 5em;
+	object-fit: contain;
+}
+
+.linkedin .logo {
+	width: 4em;
+	height: 4em;
+	border: 1px #fff solid;
+	border-radius: 8px;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
 }
 </style>
