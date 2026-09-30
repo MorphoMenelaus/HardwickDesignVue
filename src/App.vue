@@ -6,8 +6,8 @@ import MainNavbar from '@/components/MainNavbar.vue';
 import MainFooter from './components/MainFooter.vue';
 
 const baseUrl = inject('baseUrl');
-
-const isMobile = ref(/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent));
+const showHideLoader = ref(false);
+const isMobile = ref(window.innerWidth < 1024);
 const windowWidth = ref(window.innerWidth);
 const isMobileLandscape = ref(
 	screen.orientation.type.includes('landscape') && window.innerHeight < 600 && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent),
@@ -18,8 +18,9 @@ const checkOrientation = () => {
 		screen.orientation.type.includes('landscape') && window.innerHeight < 600 && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
 };
 
+provide('showHideLoader', (bool) => (showHideLoader.value = bool));
 window.addEventListener('resize', () => {
-	isMobile.value = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+	isMobile.value = window.innerWidth < 1024;
 	windowWidth.value = window.innerWidth;
 	checkOrientation();
 });
@@ -30,10 +31,13 @@ window.addEventListener('resize', () => {
 		<h2>For best user experience,<br />landscape view is not supported on mobile devices.</h2>
 		<p>Please rotate your mobile device to portrait view.</p>
 	</div>
+	<div id="loading-icon" :class="showHideLoader ? 'loading' : ''">
+		<div class="spinner-comet"></div>
+	</div>
 
-	<MainHeader :isMobile="isMobile" :isMobileLandscape="isMobileLandscape" />
+	<MainHeader v-if="!isMobile" />
 
-	<MainNavbar :isMobile="isMobile" />
+	<MainNavbar :isMobile="isMobile" :isMobileLandscape="isMobileLandscape" />
 
 	<RouterView id="view" :isMobile="isMobile" :class="isMobile ? 'mobile' : ''" />
 
@@ -65,5 +69,34 @@ window.addEventListener('resize', () => {
 	padding: 15px;
 	background-position-y: top;
 	font-size: 12px;
+}
+
+#loading-icon {
+	display: none;
+	align-content: center;
+	justify-content: center;
+	position: fixed;
+	top: 200px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100vw;
+	background-color: rgb(0 0 0 / 50%);
+	backdrop-filter: blur(5px);
+	transition: background-color 0.3 ease-in-out;
+	z-index: 15000;
+}
+
+.loader-icon {
+	height: 48px;
+	width: 48px;
+	border: 3px solid;
+	border-radius: 100%;
+	border-color: red white blue black;
+	animation: loader 0.5s linear infinite;
+}
+
+#loading-icon.loading {
+	display: grid;
 }
 </style>

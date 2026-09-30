@@ -56,7 +56,7 @@ const config = {
 	autoplay: 3000,
 	wrapAround: true, // Infinite scroll loop
 	breakpoints: {
-		768: { itemsToShow: 1, snapAlign: 'center' },
+		768: { itemsToShow: 1.5, snapAlign: 'center' },
 		1024: { itemsToShow: 2, snapAlign: 'start' },
 		1200: { itemsToShow: 3, snapAlign: 'start' },
 		1920: { itemsToShow: 4, snapAlign: 'start' },

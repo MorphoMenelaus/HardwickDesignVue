@@ -1,7 +1,7 @@
 import './assets/main.css';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
-import { onsiteUrlService } from '@/dependencies/csh-libs.js';
+// import { onsiteUrlService } from '@/dependencies/csh-libs.js';
 
 import App from './App.vue';
 import router from './router';

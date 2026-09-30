@@ -1,10 +1,3 @@
-<!-- <script setup>
-defineProps({
-	profileLink: Boolean,
-	linkedinLink: Boolean,
-	header: Boolean,
-});
-</script> -->
 <template>
 	<div class="btn-group">
 		<div class="btn-container">
@@ -62,8 +55,10 @@ defineProps({
 .btn-group {
 	display: grid;
 	width: 100%;
-	margin: 2.35em auto;
-	grid-template-columns: repeat(4, 1fr);
+	margin: 0.5em auto;
+	padding: 0 2em;
+	grid-template-columns: 1fr;
+	gap: unset;
 }
 
 .btn-container {
@@ -90,28 +85,24 @@ defineProps({
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	/* flex: 0 0 auto; */
 	height: 100px;
 	width: 100%;
 	max-width: 380px;
 	color: #000;
+	background-color: #fff;
+	background-image: url('/img/brushedAluminum.webp');
+	background-image: image-set(url('/img/brushedAluminum.webp') type('image/webp'), url('/img/brushedAluminum.jpg') type('image/jpeg'));
+	background-size: cover;
 	text-align: center;
 	text-decoration: none;
 	overflow: hidden;
 	box-sizing: border-box;
 	border-radius: 90% 10% 90% 10% / 40% 10% 40% 10%;
-	border: 6px #d20030 solid;
+	border: 3px #d20030 solid;
 	box-sizing: border-box;
 	transition:
 		transform 0.2s,
 		border-radius 0.2s;
-}
-
-.btn-container a {
-	background-color: #fff;
-	background-image: url('/img/brushedAluminum.webp');
-	background-image: image-set(url('/img/brushedAluminum.webp') type('image/webp'), url('/img/brushedAluminum.jpg') type('image/jpeg'));
-	background-size: cover;
 }
 
 .button-overlay {
@@ -148,5 +139,36 @@ defineProps({
 		1px -1px 0 #00f,
 		-1px 1px 0 #00f,
 		1px 1px 0 #00f;
+}
+
+@media (min-width: 768px) {
+	.btn-container a {
+		border: 6px #d20030 solid;
+	}
+
+	.btn-group {
+		grid-template-columns: repeat(2, 1fr);
+		margin: 1.5em auto;
+		padding: 1em;
+		gap: 2em;
+	}
+}
+
+@media (min-width: 1024px) {
+	.btn-group {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.btn-container:last-child {
+		grid-column-start: 2;
+	}
+}
+
+@media (min-width: 1200px) {
+	.btn-group {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	.btn-container:last-child {
+		grid-column-start: unset;
+	}
 }
 </style>

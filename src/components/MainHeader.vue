@@ -1,11 +1,3 @@
-<script setup>
-// import MainNavbar from '@/components/MainNavbar.vue';
-
-defineProps({
-	isMobile: Boolean,
-});
-</script>
-
 <template>
 	<header id="header">
 		<RouterLink to="/" title="Home" class="home-icon logo">
@@ -25,8 +17,6 @@ defineProps({
 				<img src="/icons/LinkedIn_logo_initials.png" class="logo" alt="Chris Hardwick on LinkedIn" />
 			</picture>
 		</a>
-
-		<!-- <MainNavbar :isMobile="isMobile" /> -->
 	</header>
 </template>
 

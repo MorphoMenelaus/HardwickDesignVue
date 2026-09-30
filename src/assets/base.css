@@ -169,6 +169,10 @@ p {
 	text-align: center;
 }
 
+.uppercase {
+	text-transform: uppercase;
+}
+
 .block-center {
 	display: block;
 	margin: auto;

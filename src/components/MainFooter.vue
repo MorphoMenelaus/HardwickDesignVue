@@ -3,7 +3,7 @@ import { inject } from 'vue';
 import ProfessionalProfile from '@/components/ProfessionalProfile.vue';
 const appCurrentVersion = inject('appCurrentVersion');
 defineProps({
-	serverVersion: String,
+	isMobile: Boolean,
 });
 </script>
 
@@ -21,7 +21,7 @@ defineProps({
 <style scoped>
 #profile {
 	width: 100%;
-	margin-bottom: 4em;
+	margin-bottom: 3.75em;
 	padding: 2em 10% 1em;
 	/* background-color: rgb(148 189 209 / 60%); */
 	background-image: linear-gradient(90deg, transparent 0, rgb(148 189 209 / 60%) 10%, rgb(148 189 209 / 60%) 90%, transparent 100%);
@@ -55,5 +55,11 @@ footer {
 	align-items: center;
 	position: fixed;
 	z-index: 9999999;
+}
+
+@media (max-width: 767px) {
+	div#profile {
+		display: none;
+	}
 }
 </style>

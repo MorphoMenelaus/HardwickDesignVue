@@ -2,7 +2,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 import 'vue3-carousel/carousel.css';
-import slides from '@/dependencies/slidesBanner.json';
+import slides from '@/dependencies/slidesProto.json';
 
 const props = defineProps({
 	isMobile: Boolean,
@@ -14,16 +14,11 @@ const shuffledSlides = ref([]);
 const config = {
 	itemsToShow: 1,
 	snapAlign: 'center',
-	autoplay: 4000,
-	wrapAround: true,
+	slideEffect: 'fade',
 	keyboardNavigation: true,
-	// breakpoints: {
-	// 	768: { itemsToShow: 1, snapAlign: 'center' },
-	// 	1024: { itemsToShow: 2, snapAlign: 'center' },
-	// 	// 1200: { itemsToShow: 3, snapAlign: 'start' },
-	// 	// 1920: { itemsToShow: 4, snapAlign: 'start' },
-	// 	// 2200: { itemsToShow: 5, snapAlign: 'start' },
-	// },
+	transition: 700,
+	autoplay: 3000,
+	wrapAround: true,
 };
 
 function shuffleArray(array) {
@@ -37,28 +32,21 @@ function shuffleArray(array) {
 
 onMounted(() => {
 	shuffledSlides.value = shuffleArray(slides);
-	// window.addEventListener('keydown', keyHandler);
 });
-
-// onBeforeUnmount(() => {
-// 	window.removeEventListener('keydown', keyHandler);
-// });
 </script>
 
 <template>
-	<div id="carousel-container" v-if="shuffledSlides?.length > 0">
+	<div id="carousel-proto" v-if="shuffledSlides?.length > 0">
 		<Carousel v-bind="config" ref="carousel">
 			<Slide v-for="slide in shuffledSlides" :key="slide.id">
-				<div class="carousel__item">
-					<RouterLink :to="slide.location" :title="slide.title">
-						<span class="text-stroke">{{ slide.title }}</span>
-					</RouterLink>
+				<RouterLink :to="slide.location" class="carousel__item">
+					<span class="text-stroke">{{ slide.title }}</span>
 					<picture>
 						<source type="image/webp" :srcset="`/img/${slide.image}.webp`" />
 						<source type="image/jpg" :srcset="`/img/${slide.image}.jpg`" />
 						<img :src="`/img/${slide.image}.jpg`" class="logo" :alt="slide.title" />
 					</picture>
-				</div>
+				</RouterLink>
 			</Slide>
 			<!-- Addons are optional slots for UI elements -->
 			<template #addons>
@@ -70,14 +58,14 @@ onMounted(() => {
 </template>
 
 <style>
-#carousel-container {
-	width: 100vw;
+#carousel-proto {
+	width: 100%;
 	padding: 0;
 	margin: 0 auto;
 	user-select: none;
 }
 
-#carousel-container .carousel__item {
+#carousel-proto .carousel__item {
 	width: 100%;
 	font-size: 1.75em;
 	display: flex;
@@ -86,7 +74,7 @@ onMounted(() => {
 	border-radius: 8px;
 }
 
-#carousel-container .carousel__item span {
+#carousel-proto .carousel__item span {
 	position: absolute;
 	bottom: 15px;
 	text-align: center;
@@ -96,17 +84,21 @@ onMounted(() => {
 	width: 100%;
 	min-height: 3em;
 	align-content: center;
+	border-radius: 0 0 12px 12px;
+	overflow: hidden;
 }
 
-#carousel-container .carousel__item img {
-	width: 100vw;
-	height: calc(100vh - 20em);
+#carousel-proto .carousel__item img {
+	width: 100%;
+	height: 600px;
 	object-fit: cover;
 	border-width: 0 2px;
 	border-style: solid;
+	border-radius: 12px;
+	overflow: hidden;
 }
 
-#carousel-container .carousel__icon {
+#carousel-proto .carousel__icon {
 	color: #000;
 	background-color: #fff;
 	border-radius: 10px;
@@ -115,48 +107,44 @@ onMounted(() => {
 		color 300ms ease-in-out;
 }
 
-#carousel-container .carousel__prev,
-#carousel-container .carousel__next {
+#carousel-proto .carousel__prev,
+#carousel-proto .carousel__next {
 	display: none;
 	/* font-size: 4em;
 	width: 0.7em;
 	height: 0.7em; */
 }
 
-.carousel__pagination {
+/* .carousel__pagination {
 	top: 0.5em;
 }
 
-#carousel-container .carousel__pagination-button {
+#carousel-proto .carousel__pagination-button {
 	height: 0.6em;
 	background-color: var(--vt-c-text-dark-2);
 	border-radius: 50%;
 	height: 20px !important;
 	width: 20px;
-}
+} */
 
-#carousel-container .carousel__prev .carousel__icon {
+/* #carousel-proto .carousel__prev .carousel__icon {
 	border-radius: 0 10px 10px 0;
 }
 
-#carousel-container .carousel__next .carousel__icon {
+#carousel-proto .carousel__next .carousel__icon {
 	border-radius: 10px 0 0 10px;
-}
+} */
 
-#carousel-container .carousel__pagination-button--active {
+#carousel-proto .carousel__pagination-button--active {
 	background-color: #5611bd;
 }
 
-#carousel-container .carousel__icon:hover {
+#carousel-proto .carousel__icon:hover {
 	color: #a8befb;
 	background-color: #4b4f8c;
 }
 
 @media (min-width: 768px) {
-	#carousel-container .carousel__item img {
-		height: calc(100vh - 15em);
-	}
-
 	.carousel__pagination {
 		top: 0.8em;
 	}

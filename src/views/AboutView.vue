@@ -2,6 +2,7 @@
 import { inject } from 'vue';
 import CarouselHeadlines from '@/components/CarouselHeadlines.vue';
 import ProfessionalProfile from '@/components/ProfessionalProfile.vue';
+import ProfSkills from '@/components/ProfSkills.vue';
 const copyright = inject('copyright');
 </script>
 <template>
@@ -10,6 +11,7 @@ const copyright = inject('copyright');
 		<div id="page-layout" class="about">
 			<h1 class="amaranth text-center">About Chris Hardwick</h1>
 			<ProfessionalProfile />
+			<ProfSkills />
 		</div>
 	</main>
 </template>
