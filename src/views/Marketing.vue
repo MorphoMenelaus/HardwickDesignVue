@@ -1,5 +1,5 @@
 <script setup>
-import { ref, provide, inject, watch, onMounted } from 'vue';
+import { ref, provide, inject, watch, onMounted, onBeforeUnmount } from 'vue';
 import SlideViewer from '@/components/SlideViewer.vue';
 
 const showHideLoader = inject('showHideLoader');
@@ -43,6 +43,10 @@ const getMarketingImages = async () => {
 
 onMounted(() => {
 	getMarketingImages();
+});
+
+onBeforeUnmount(() => {
+	showHideLoader(false);
 });
 </script>
 <template>

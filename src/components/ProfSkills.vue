@@ -7,7 +7,7 @@
 				<li>Full Stack Development</li>
 				<li>HTML5</li>
 				<li>CSS3</li>
-				<li>Javascript</li>
+				<li>JavaScript</li>
 				<li>jQuery</li>
 				<li>ChartJS</li>
 				<li>Single Page Applications</li>

@@ -39,7 +39,7 @@ window.addEventListener('resize', () => {
 
 	<MainNavbar :isMobile="isMobile" :isMobileLandscape="isMobileLandscape" />
 
-	<RouterView id="view" :isMobile="isMobile" :class="isMobile ? 'mobile' : ''" />
+	<RouterView id="view" :windowWidth="windowWidth" :isMobile="isMobile" :class="isMobile ? 'mobile' : ''" />
 
 	<MainFooter :isMobile="isMobile" />
 </template>

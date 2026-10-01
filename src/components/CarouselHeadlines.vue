@@ -45,7 +45,7 @@ const headlines = [
 	{
 		id: 7,
 		title: '',
-		headline: 'Custom resposive web development with emphasis on semantic and ADA accessability compliance',
+		headline: 'Custom resposive web development with emphasis on semantic and ADA accessibility compliance',
 	},
 ];
 

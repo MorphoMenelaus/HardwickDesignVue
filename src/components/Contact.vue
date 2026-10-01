@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, provide, inject, watch } from 'vue';
+import { onMounted, ref, provide, inject, watch, onBeforeUnmount } from 'vue';
 import Notifications from '@/components/Notifications.vue';
 
 const props = defineProps({
@@ -157,6 +157,10 @@ onMounted(() => {
 		document.head.appendChild(script);
 	}
 });
+
+onBeforeUnmount(() => {
+	showHideLoader(false);
+});
 </script>
 
 <template>
@@ -227,6 +231,10 @@ onMounted(() => {
 	padding: 1em;
 }
 
+#contact {
+	position: relative;
+}
+
 .wrapper {
 	margin: auto;
 }
@@ -283,6 +291,7 @@ textarea {
 
 textarea {
 	min-height: 5em;
+	font-family: 'Roboto', sans-serif;
 }
 
 .send.btn {

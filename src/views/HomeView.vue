@@ -3,7 +3,7 @@ import { inject } from 'vue';
 import Copyright from '@/components/Copyright.vue';
 import CarouselBanner from '@/components/CarouselBanner.vue';
 import FrontPageCTA from '@/components/FrontPageCTA.vue';
-const copyright = inject('copyright');
+// const copyright = inject('copyright');
 </script>
 
 <template>

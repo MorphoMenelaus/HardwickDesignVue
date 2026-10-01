@@ -1,5 +1,5 @@
 <script setup>
-import { ref, provide, inject, watch, onMounted } from 'vue';
+import { ref, provide, inject, watch, onMounted, onBeforeUnmount } from 'vue';
 import CarouselProto from '@/components/CarouselProto.vue';
 import SlideViewer from '@/components/SlideViewer.vue';
 
@@ -44,6 +44,10 @@ const getPrototypeImages = async () => {
 
 onMounted(() => {
 	getPrototypeImages();
+});
+
+onBeforeUnmount(() => {
+	showHideLoader(false);
 });
 </script>
 <template>
@@ -105,6 +109,7 @@ onMounted(() => {
 <style scoped>
 h4 {
 	font-size: 1.5em;
+	line-height: 2.5em;
 	text-align: center;
 }
 

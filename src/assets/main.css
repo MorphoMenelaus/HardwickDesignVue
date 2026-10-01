@@ -167,7 +167,7 @@
 }
 
 .grecaptcha-badge {
-	bottom: 6em !important;
+	bottom: 3em !important;
 	z-index: 10000 !important;
 }
 

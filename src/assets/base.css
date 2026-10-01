@@ -170,6 +170,22 @@ p {
 		-1px 1px 0px #000;
 }
 
+.text-glow-yellow {
+	text-shadow:
+		1px 1px 10px rgb(255 255 0 / 60%),
+		-1px -1px 10px rgb(255 255 0 / 60%),
+		1px -1px 10px rgb(255 255 0 / 60%),
+		-1px 1px 10px rgb(255 255 0 / 60%);
+}
+
+.text-glow-lightblue {
+	text-shadow:
+		1px 1px 10px rgb(163 211 255 / 70%),
+		-1px -1px 10px rgb(163 211 255 / 70%),
+		1px -1px 10px rgb(163 211 255 / 70%),
+		-1px 1px 10px rgb(163 211 255 / 70%);
+}
+
 .text-center {
 	display: block;
 	text-align: center;

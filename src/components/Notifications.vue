@@ -46,17 +46,15 @@ const setClassName = () => {
 
 <style scoped>
 #notification {
-	position: fixed;
-	top: 7em;
-	right: 0;
-	left: 0;
-	bottom: 6em;
+	position: absolute;
+	inset: 0;
 	background-color: rgb(0 0 0 / 75%);
 	backdrop-filter: blur(8px);
-	display: flex;
-	/* align-items: center; */
+	display: grid;
+	align-items: center;
 	justify-content: center;
 	z-index: 500;
+	border-radius: 0.5em;
 }
 
 #notify-box {
@@ -67,6 +65,10 @@ const setClassName = () => {
 	background-color: #000;
 	border: 1px #ddd solid;
 	border-radius: 5px;
+}
+
+h2 {
+	font-size: 1.5em;
 }
 
 .mobile #notify-box {
@@ -81,5 +83,12 @@ const setClassName = () => {
 }
 .warning {
 	color: #ffff00;
+}
+
+@media (min-width: 1024px) {
+	h2 {
+		font-size: 2.5em;
+		line-height: 3em;
+	}
 }
 </style>

@@ -6,6 +6,8 @@ defineProps({
 	isMobileLandscape: Boolean,
 });
 
+const showHideLoader = inject('showHideLoader');
+
 const app = ref(null);
 const isScrolled = ref(false);
 const mobileMenuShow = ref(false);

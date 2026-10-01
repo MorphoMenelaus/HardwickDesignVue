@@ -6,7 +6,7 @@ import Contact from '@/components/Contact.vue';
 import CarouselHeadlines from '@/components/CarouselHeadlines.vue';
 import ProfessionalProfile from '@/components/ProfessionalProfile.vue';
 import ProfSkills from '@/components/ProfSkills.vue';
-const copyright = inject('copyright');
+// const copyright = inject('copyright');
 </script>
 <template>
 	<main>
