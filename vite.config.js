@@ -10,7 +10,6 @@ const packageJson = JSON.parse(readFileSync('./package.json', 'utf-8'));
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, process.cwd(), '');
-	const onsiteServer = env?.VITE_API_ONSITE_SERVER_URL || '';
 
 	return {
 		plugins: [vue(), vueDevTools()],

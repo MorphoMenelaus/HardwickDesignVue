@@ -1,47 +1,37 @@
 [
   {
     "id": 1,
-    "title": "Bohn Vertical Air Discharge Units Technical Guide",
-    "file": "/pdf/BN-TB-CU-AIRCOOLED-VAD-24-80.pdf"
+    "title": "Seascape Lamps 21 Catalog",
+    "file": "/pdf/Seascape20.pdf"
   },
   {
     "id": 2,
-    "title": "Bohn Water-Cooled Condensing Unit Technical Guide",
-    "file": "/pdf/BN-TB-CU-WATERCOOLED-.5-6.pdf"
+    "title": "Seascape Lamps 20 Catalog",
+    "file": "/pdf/Seascape21.pdf"
   },
   {
     "id": 3,
-    "title": "Larkin Water-Cooled Condensing Units Technical Guide",
-    "file": "/pdf/LK-TB-CU-WATERCOOLED-.5-6.pdf"
-  },
-  {
-    "id": 4,
-    "title": "Seascape Lamps Catalog",
-    "file": "/pdf/Seascape_v5_WebLg.pdf"
-  },
-  {
-    "id": 5,
-    "title": "Bohn Vertical Air Discharge Condensing Units",
-    "file": "/pdf/Seascape2010web.pdf"
-  },
-  {
-    "id": 6,
-    "title": "Seascape Lamps Catalog",
-    "file": "/pdf/SeascapeCatalogLG17.pdf"
-  },
-  {
-    "id": 7,
     "title": "Thomaspaul Lamps Catalog",
     "file": "/pdf/thomaspaul09.pdf"
   },
   {
-    "id": 8,
-    "title": "AT&T PID Number Reference Catalog",
-    "file": "/pdf/Westek_AT&T_SBC_PID.pdf"
+    "id": 4,
+    "title": "Larkin Condensing Units Technical Guide",
+    "file": "/pdf/LK-TB-CU-WATERCOOLED-5-6.pdf"
   },
   {
-    "id": 9,
-    "title": "Verizon PID Number Reference Catalog",
-    "file": "/pdf/Westek_Verizon_SSI_Catalog.pdf"
+    "id": 5,
+    "title": "Bohn Vertical Air Discharge Condensing Units",
+    "file": "/pdf/BN-TB-CU-AIRCOOLED-VAD-24-80.pdf"
+  },
+  {
+    "id": 6,
+    "title": "Bohn Water-Cooled Condensing Unit Technical Guide",
+    "file": "/pdf/BN-TB-CU-WATERCOOLED-5-6.pdf"
+  },
+  {
+    "id": 7,
+    "title": "AT&T PID Number Reference Catalog",
+    "file": "/pdf/WestekATT-SBC-PID.pdf"
   }
 ]

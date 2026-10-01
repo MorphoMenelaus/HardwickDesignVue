@@ -101,7 +101,7 @@ onUnmounted(() => {
 					<RouterLink to="/marketing" title="Tech Marketing Design Brochures & Documents">Tech Marketing</RouterLink>
 					<RouterLink to="/prototyping" title="3D Design, Animation, and Printing / Prototyping">3D&nbsp;Design / Prototyping</RouterLink>
 					<RouterLink to="/pdfs" title="Online and Print Catalog PDFs">Catalog&nbsp;PDFs</RouterLink>
-					<RouterLink to="/about" title="About">About</RouterLink>
+					<RouterLink to="/about" title="About">Contact / About</RouterLink>
 				</div>
 			</div>
 		</nav>

@@ -149,7 +149,7 @@
 	.btn-group {
 		grid-template-columns: repeat(2, 1fr);
 		margin: 1.5em auto;
-		padding: 1em;
+		padding: .5em;
 		gap: 2em;
 	}
 }

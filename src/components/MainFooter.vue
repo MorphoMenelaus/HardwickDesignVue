@@ -14,17 +14,19 @@ defineProps({
 		</div>
 	</footer>
 	<div id="psuedo-footer">
-		<h3 class="amaranth">Hardwick Web Design</h3>
+		<RouterLink to="/about" title="Contact Hardwick Web Design">
+			<h3 class="amaranth">Hardwick Web Design</h3>
+		</RouterLink>
 	</div>
 </template>
 
 <style scoped>
 #profile {
 	width: 100%;
-	margin-bottom: 3.75em;
+	margin-bottom: 2.75em;
 	padding: 2em 10% 1em;
 	/* background-color: rgb(148 189 209 / 60%); */
-	background-image: linear-gradient(90deg, transparent 0, rgb(148 189 209 / 60%) 10%, rgb(148 189 209 / 60%) 90%, transparent 100%);
+	background-image: linear-gradient(90deg, transparent 0, rgb(148 189 209 / 50%) 10%, rgb(148 189 209 / 50%) 90%, transparent 100%);
 }
 
 footer {
@@ -44,7 +46,7 @@ footer {
 	bottom: 0;
 	right: 0;
 	left: 0;
-	height: 4em;
+	height: 3em;
 	padding: 1em;
 	overflow: hidden;
 	background-color: rgb(114, 168, 190);
@@ -55,6 +57,15 @@ footer {
 	align-items: center;
 	position: fixed;
 	z-index: 9999999;
+}
+
+#psuedo-footer a {
+	color: var(--vt-c-text-light-3);
+	text-decoration: none;
+}
+
+#psuedo-footer a:hover {
+	color: #185abc;
 }
 
 @media (max-width: 767px) {

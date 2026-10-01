@@ -59,7 +59,7 @@ const handleSource = (source) => {
 	page.value = 1;
 	showAllPages.value = false;
 	pdfSource.value = source;
-	scrollToId('pdf-viewer');
+	// scrollToId('pdf-viewer');
 };
 
 const scrollToId = (id) => {
@@ -76,7 +76,14 @@ const scrollToId = (id) => {
 
 <template>
 	<main>
-		<div id="view-inner">
+		<div id="page-layout">
+			<h2 class="page-header amaranth">Product Catalogs &amp; Tech Sheets for Print or Web</h2>
+			<p>
+				Catalogs and brochures are powerful mediums for communicating company identity, show off products and services, and portray a strong
+				vision. Professional designs reinforce a business's reputation and commitment to their customers and leave a lasting impression.
+				Hardwick Designs has worked with many industries to tell their stories and reach new clientele.
+			</p>
+
 			<div id="sidebar">
 				<h3>Select Catalog</h3>
 				<div id="source">
@@ -92,27 +99,24 @@ const scrollToId = (id) => {
 				</div>
 			</div>
 			<div id="pdf-container">
+				<div class="pdf-header">
+				</div>
 				<div id="loading-progress" v-if="isLoading">
 					<div class="spinner-comet"></div>
 					<h3>{{ isRendering ? 'Rendering' : 'Loading' }}</h3>
 					<progress v-if="loadProgress" :value="loadProgress" max="100"></progress>
-					<span v-if="loadProgress"
-						>{{ (loadedSize / 1000000).toFixed(2) }} / {{ (totalSize / 1000000).toFixed(2) }} MB</span
-					>
+					<span v-if="loadProgress">{{ (loadedSize / 1000000).toFixed(2) }} / {{ (totalSize / 1000000).toFixed(2) }} MB</span>
 				</div>
 				<div id="paging">
-					<button class="btn" :disabled="page <= 1" @click="handlepaging('prev')" title="Previous Page">
-						Previous Page
-					</button>
-					<button class="btn" :disabled="page >= pageCount" @click="handlepaging('next')" title="Next Page">
-						Next Page
-					</button>
-				</div>
-				<div id="pageCount">
-					Select Page:
-					<select v-model="page" v-if="pageCount" @change="handleDropdown" title="Select Page">
-						<option v-for="(item, index) in pageCount" :key="index" :value="item">Page {{ item }}</option>
-					</select>
+					<div id="pageSelect">
+						Select Page:
+						<select v-model="page" v-if="pageCount" @change="handleDropdown" title="Select Page">
+							<option v-for="(item, index) in pageCount" :key="index" :value="item">Page {{ item }}</option>
+						</select>
+					</div>
+					<button class="btn" :disabled="page <= 1" @click="handlepaging('prev')" title="Previous Page">Previous Page</button>
+					<button class="btn" :disabled="page >= pageCount" @click="handlepaging('next')" title="Next Page">Next Page</button>
+					Page: {{ page }} / {{ pageCount }}
 				</div>
 				<div id="show-all" v-if="renderIfDebug">
 					<input id="show-all-pages" v-model="showAllPages" type="checkbox" @change="toggleShowAllPages" />
@@ -137,6 +141,20 @@ const scrollToId = (id) => {
 </template>
 
 <style scoped>
+h2 {
+	text-align: center;
+}
+
+p {
+	text-indent: 1.5em;
+	margin-bottom: 1em;
+}
+
+.pdf-header {
+	margin: 1em auto;
+	width: 90%;
+}
+
 .vue-pdf-embed {
 	width: 50vw;
 	margin: auto;
@@ -157,14 +175,14 @@ const scrollToId = (id) => {
 	flex-direction: column;
 	float: left;
 	text-align: center;
-	background-color: #1a2243;
+	background-color: #e0e8f0;
 	margin: 1.5em;
 	padding: 0.5em;
+	border-radius: 0.5em;
 }
 
 #sidebar h3 {
 	margin-top: 0.7em;
-	color: #ddd;
 }
 
 #pdf-container {
@@ -175,18 +193,21 @@ const scrollToId = (id) => {
 
 #paging {
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
+	width: 35em;
+	align-items: center;
+	margin: 1em auto;
+	padding: 0.2em 0.6em;
+	font-weight: bold;
+	border-radius: 0.2em;
+	border: 1px #333 solid;
+	background: linear-gradient(rgba(124, 172, 191, 0.7), rgba(212, 232, 230, 0.7) 75%);
 }
 
-#pageCount {
+#pageSelect {
 	display: flex;
-	justify-self: center;
-	margin-bottom: 0.5em;
-	justify-content: center;
-}
-
-div#pageCount > * {
-	margin: 0 1em;
+	flex-direction: column;
+	font-weight: bold;
 }
 
 #show-all {
@@ -207,25 +228,26 @@ div#pageCount > * {
 
 .active {
 	border-color: #fff;
-	background-color: rgb(131 153 193 / 50%);
+	background-color: rgb(95 170 195 / 75%);
 	color: #fff;
 }
 
+button {
+	border-radius: 0.5em;
+}
+
 button[disabled] {
-	background-color: rgb(2 6 24 / 60%);
-	color: #4b4b4b;
-	/* cursor: not-allowed; */
+	background-color: rgb(37 106 135 / 74%);
+	color: #b1b1b1;
 	cursor: default;
 }
 
 #loading-progress {
-	/* display: none; */
 	align-content: center;
 	justify-content: center;
 	position: absolute;
-	inset: 6em 0 0;
+	inset: 0;
 	width: 100%;
-	height: calc(100% - 6em);
 	background-color: rgb(0 0 0 / 70%);
 	backdrop-filter: blur(5px);
 	transition: background-color 0.3 ease-in-out;
@@ -233,10 +255,7 @@ button[disabled] {
 	color: #fff;
 	display: grid;
 	min-height: 20vh;
-	/* align-items: center; */
-	/* justify-items: center; */
-	/* align-content: center; */
-	/* justify-content: center; */
+	margin: 1em 1em 0;
 }
 
 #loading-progress > * {

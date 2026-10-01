@@ -5,7 +5,7 @@ import SlideViewer from '@/components/SlideViewer.vue';
 const showHideLoader = inject('showHideLoader');
 
 const imageArray = ref([]);
-const devUrl = 'http://192.168.1.150:3000';
+const baseUrl = inject('baseUrl');
 const loading = ref('');
 const error = ref(null);
 const imageData = ref({});
@@ -18,7 +18,7 @@ const getMarketingImages = async () => {
 
 	let headerObj = new Headers();
 	headerObj.append('Content-Type', 'application/json; charset=utf-8');
-	let requestUrl = new URL('/api/seed/tech', devUrl); //window.location, origin);
+	let requestUrl = new URL('/api/seed/tech', baseUrl); //window.location, origin);
 
 	let request = new Request(requestUrl.toString(), {
 		method: 'GET',
@@ -47,8 +47,8 @@ onMounted(() => {
 </script>
 <template>
 	<main>
-		<div id="page-layout" class="about">
-			<h1 class="amaranth text-center">Tech Marketing Design</h1>
+		<div id="page-layout">
+			<h2 class="page-header amaranth">Tech Marketing Design</h2>
 			<p>
 				Technical catalogs and brochures geared toward best accepted standards can contain the necessary advanced information to assign your
 				products and services the authority of industry technicians and experts. Hardwick Design has worked with many industries and can

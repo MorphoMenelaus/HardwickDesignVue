@@ -12,15 +12,15 @@ app.use(createPinia());
 app.use(router);
 
 const appCurrentVersion = APP_VERSION;
+const reCaptchaSiteKey = import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY;
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 app.config.globalProperties.appCurrentVersion = appCurrentVersion;
 app.config.globalProperties.baseUrl = baseUrl;
 
-const copyright = `Copyright &copy;${new Date().getFullYear()} Chris Hardwick, All Rights Reserved.`;
-app.provide('copyright', copyright);
 app.provide('appCurrentVersion', appCurrentVersion);
 app.provide('baseUrl', baseUrl);
+app.provide('reCaptchaSiteKey', reCaptchaSiteKey);
 
 app.mount('#app');

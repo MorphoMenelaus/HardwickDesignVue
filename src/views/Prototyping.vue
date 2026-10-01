@@ -6,7 +6,7 @@ import SlideViewer from '@/components/SlideViewer.vue';
 const showHideLoader = inject('showHideLoader');
 
 const imageArray = ref([]);
-const devUrl = 'http://192.168.1.150:3000';
+const baseUrl = inject('baseUrl');
 const loading = ref('');
 const error = ref(null);
 const imageData = ref({});
@@ -19,7 +19,7 @@ const getPrototypeImages = async () => {
 
 	let headerObj = new Headers();
 	headerObj.append('Content-Type', 'application/json; charset=utf-8');
-	let requestUrl = new URL('/api/seed/proto', devUrl); //window.location, origin);
+	let requestUrl = new URL('/api/seed/proto', baseUrl); //window.location, origin);
 
 	let request = new Request(requestUrl.toString(), {
 		method: 'GET',
@@ -48,7 +48,9 @@ onMounted(() => {
 </script>
 <template>
 	<main>
-		<h2 class="amaranth text-center uppercase">3D Design, Animation & Printing / Prototyping</h2>
+		<div id="page-layout">
+			<h2 class="page-header amaranth">3D Design, Animation & Printing / Prototyping</h2>
+		</div>
 		<div id="headline-container">
 			<CarouselProto />
 			<div id="description-container">
@@ -56,12 +58,12 @@ onMounted(() => {
 				<h4>Precision modeling for videos and functional prototypes</h4>
 				<p>
 					What started as a love for 3D modeling and animation, has led to years working designing models and prototypes for manufacturing
-					and mock‐ups for marketing. Making vectors and 3D models for CNC manufacturing was not how I started this journey but I found that
+					and mock-ups for marketing. Making vectors and 3D models for CNC manufacturing was not how I started this journey but I found that
 					there is a demand for that.
 				</p>
 				<p>Below on this page are some examples of some 3D printing I have been doing recently. I will update these periodically.</p>
 				<p>
-					I have extensive experience creating drawings for technical manuals, instruction diagrams, and parts‐breakout diagrams. Check out
+					I have extensive experience creating drawings for technical manuals, instruction diagrams, and parts-breakout diagrams. Check out
 					my Tech Marketing Design page for more examples.
 				</p>
 				<p>It's very satisfying to physically hold an object you just created in a computer.</p>
@@ -101,10 +103,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-h2 {
-	line-height: 2.5em;
-}
-
 h4 {
 	font-size: 1.5em;
 	text-align: center;

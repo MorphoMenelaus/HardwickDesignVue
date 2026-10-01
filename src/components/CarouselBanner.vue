@@ -94,7 +94,7 @@ onMounted(() => {
 	padding: 0 0.8em;
 	color: var(--vt-c-text-dark-3);
 	width: 100%;
-	min-height: 3em;
+	min-height: 2em;
 	align-content: center;
 }
 
@@ -154,7 +154,7 @@ onMounted(() => {
 
 @media (min-width: 768px) {
 	#carousel-container .carousel__item img {
-		height: calc(100vh - 15em);
+		height: calc(100vh - 14em);
 	}
 
 	.carousel__pagination {

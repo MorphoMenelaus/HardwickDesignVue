@@ -40,6 +40,9 @@
 	padding: .7em 1em;
 	text-align: center;
 	text-overflow: ellipsis;
+	background-color: #e0e8f0;
+	box-shadow: inset -2px -2px 5px rgba(0, 0, 0, .35);
+	border-radius: 0.5em;
 	overflow: hidden;
 	cursor: pointer;
 	user-select: none;
