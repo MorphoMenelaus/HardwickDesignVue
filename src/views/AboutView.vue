@@ -14,6 +14,9 @@ import ProfSkills from '@/components/ProfSkills.vue';
 		<h1 class="page-header amaranth">Contact Hardwick Design</h1>
 		<div class="two-panel-grid">
 			<div class="two-panel-item">
+				<div id="form-header">
+					<h2 class="amaranth text-center">Contact Chris Hardwick</h2>
+				</div>
 				<Contact />
 			</div>
 			<div class="two-panel-item">

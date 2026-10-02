@@ -1,7 +1,13 @@
 <script setup>
 import { ref, watch, onBeforeUnmount } from 'vue';
+import { onBeforeRouteUpdate } from 'vue-router';
 import VuePdfEmbed from 'vue-pdf-embed';
 import pdfs from '@/dependencies/pdfFileList.json';
+
+onBeforeRouteUpdate((to, from) => {
+	// React to the route change
+	console.log('Navigating to:', to.params.id);
+});
 
 // Optional styles
 import 'vue-pdf-embed/dist/styles/annotationLayer.css';

@@ -164,71 +164,69 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-	<main>
-		<div id="view-inner">
-			<div id="contact">
-				<Notifications :notifyObject="notifyObject" />
-				<div class="wrapper">
-					<form @submit.prevent="contactHandler" method="post">
-						<h4 class="amaranth">Get a quote for your next project.</h4>
-						<div class="input-group">
-							<label for="name" title="Name">Name</label>
-							<input v-model.trim="name" id="name" type="text" name="name" class="" maxlength="128" />
+	<div id="view-inner">
+		<div id="contact">
+			<Notifications :notifyObject="notifyObject" />
+			<div class="wrapper">
+				<form @submit.prevent="contactHandler" method="post">
+					<h4 class="amaranth">Get a quote for your next project.</h4>
+					<div class="input-group">
+						<label for="name" title="Name">Name</label>
+						<input v-model.trim="name" id="name" type="text" name="name" class="" maxlength="128" />
+					</div>
+					<div class="input-group">
+						<label for="email" title="Email">Email</label>
+						<input v-model.trim="email" id="email" type="text" name="email" class="" maxlength="128" />
+					</div>
+					<div class="suggestion-buttons" v-if="!isMobile">
+						<span>Suggested Messages:</span>
+						<div class="sugg-btn">
+							<button
+								type="button"
+								v-for="msg in suggestedMessages"
+								:key="msg.id"
+								class="btn"
+								:title="msg.buttonText"
+								@click="handleSuggestion(msg)"
+							>
+								{{ msg.buttonText }}
+							</button>
 						</div>
-						<div class="input-group">
-							<label for="email" title="Email">Email</label>
-							<input v-model.trim="email" id="email" type="text" name="email" class="" maxlength="128" />
-						</div>
-						<div class="suggestion-buttons" v-if="!isMobile">
-							<span>Suggested Messages:</span>
-							<div class="sugg-btn">
-								<button
-									type="button"
-									v-for="msg in suggestedMessages"
-									:key="msg.id"
-									class="btn"
-									:title="msg.buttonText"
-									@click="handleSuggestion(msg)"
-								>
-									{{ msg.buttonText }}
-								</button>
-							</div>
-						</div>
+					</div>
 
-						<div class="input-group">
-							<label for="subject" title="Subject">Subject</label>
-							<input v-model.trim="subject" id="subject" type="text" name="subject" class="" maxlength="128" />
-						</div>
-						<div class="input-group">
-							<label for="message" title="Message">Message</label>
-							<small>(characters remaining: {{ charRemaining }})</small>
-							<textarea
-								v-model.trim="message"
-								id="message"
-								:maxlength="maxlength"
-								@keyup="charCounter()"
-								type="text"
-								name="message"
-								class=""
-							/>
-						</div>
-						<small class="text-center">
-							Your info will not be shared with anyone. See our
-							<router-link to="/about#privacy">Privacy Policy</router-link>.
-						</small>
-						<div class="button-group">
-							<button class="btn send" type="submit" title="Send email" @click.prevent="contactHandler" :disabled="disabled">Send</button>
-						</div>
-					</form>
-				</div>
+					<div class="input-group">
+						<label for="subject" title="Subject">Subject</label>
+						<input v-model.trim="subject" id="subject" type="text" name="subject" class="" maxlength="128" />
+					</div>
+					<div class="input-group">
+						<label for="message" title="Message">Message</label>
+						<small>(characters remaining: {{ charRemaining }})</small>
+						<textarea
+							v-model.trim="message"
+							id="message"
+							:maxlength="maxlength"
+							@keyup="charCounter()"
+							type="text"
+							name="message"
+							class=""
+						/>
+					</div>
+					<small class="text-center">
+						Your info will not be shared with anyone. See our
+						<router-link to="/about#privacy">Privacy Policy</router-link>.
+					</small>
+					<div class="button-group">
+						<button class="btn send" type="submit" title="Send email" @click.prevent="contactHandler" :disabled="disabled">Send</button>
+					</div>
+				</form>
 			</div>
 		</div>
-	</main>
+	</div>
 </template>
 
 <style scoped>
 #view-inner {
-	padding: 1em;
+	padding: 0 1em 1em;
 }
 
 #contact {

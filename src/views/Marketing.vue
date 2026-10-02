@@ -1,16 +1,14 @@
 <script setup>
 import { ref, provide, inject, watch, onMounted, onBeforeUnmount } from 'vue';
-import SlideViewer from '@/components/SlideViewer.vue';
 
 const showHideLoader = inject('showHideLoader');
+const baseUrl = inject('baseUrl');
+const slideArray = inject('slideArray');
+const slideIndex = inject('slideIndex');
 
 const imageArray = ref([]);
-const baseUrl = inject('baseUrl');
 const loading = ref('');
 const error = ref(null);
-const imageData = ref({});
-
-provide('closeViewer', () => (imageData.value = {}));
 
 const getMarketingImages = async () => {
 	showHideLoader(true);
@@ -18,7 +16,7 @@ const getMarketingImages = async () => {
 
 	let headerObj = new Headers();
 	headerObj.append('Content-Type', 'application/json; charset=utf-8');
-	let requestUrl = new URL('/api/seed/tech', baseUrl); //window.location, origin);
+	let requestUrl = new URL('/api/seed/tech', baseUrl);
 
 	let request = new Request(requestUrl.toString(), {
 		method: 'GET',
@@ -31,6 +29,7 @@ const getMarketingImages = async () => {
 		if (response?.ok) {
 			let data = await response.json();
 			imageArray.value = data.data;
+			slideArray(data.data);
 		}
 	} catch (err) {
 		console.error(err);
@@ -46,6 +45,9 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
+	imageArray.value = [];
+	slideArray(imageArray);
+	slideIndex(null);
 	showHideLoader(false);
 });
 </script>
@@ -65,7 +67,7 @@ onBeforeUnmount(() => {
 		</div>
 		<div class="slideContainer" id="techMarketing">
 			<div v-if="imageArray.length > 0" class="cards">
-				<picture v-for="(item, index) in imageArray" :key="index" class="card" @click="imageData = item">
+				<picture v-for="(item, index) in imageArray" :key="index" class="card" @click="slideIndex(index)">
 					<source :srcset="`${item.url}.webp`" type="image/webp" />
 					<source :srcset="`${item.url}.jpg`" type="image/jpeg" />
 					<img :src="`${item.url}.jpg`" :alt="item.alt" :title="item.title" :data-fullsize="`${item.fullSize}.jpg`" />
@@ -76,9 +78,6 @@ onBeforeUnmount(() => {
 				<h3 v-if="error" :class="error ? 'error' : ''">{{ error }}</h3>
 			</div>
 		</div>
-		<Transition name="fade">
-			<SlideViewer v-if="Object.keys(imageData).length > 0" :imageData="imageData" />
-		</Transition>
 	</main>
 </template>
 

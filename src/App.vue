@@ -1,14 +1,17 @@
 <script setup>
 import { onMounted, ref, provide, inject } from 'vue';
 import { RouterLink, RouterView } from 'vue-router';
+import SlideViewer from '@/components/SlideViewer.vue';
 import MainHeader from '@/components/MainHeader.vue';
 import MainNavbar from '@/components/MainNavbar.vue';
 import MainFooter from './components/MainFooter.vue';
 
-const baseUrl = inject('baseUrl');
+// const baseUrl = inject('baseUrl');
 const showHideLoader = ref(false);
 const isMobile = ref(window.innerWidth < 1024);
 const windowWidth = ref(window.innerWidth);
+const slideArray = ref([]);
+const slideIndex = ref(null);
 const isMobileLandscape = ref(
 	screen.orientation.type.includes('landscape') && window.innerHeight < 600 && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent),
 );
@@ -19,6 +22,8 @@ const checkOrientation = () => {
 };
 
 provide('showHideLoader', (bool) => (showHideLoader.value = bool));
+provide('slideArray', (slides) => (slideArray.value = slides));
+provide('slideIndex', (index) => (slideIndex.value = index));
 window.addEventListener('resize', () => {
 	isMobile.value = window.innerWidth < 1024;
 	windowWidth.value = window.innerWidth;
@@ -34,6 +39,9 @@ window.addEventListener('resize', () => {
 	<div id="loading-icon" :class="showHideLoader ? 'loading' : ''">
 		<div class="spinner-comet"></div>
 	</div>
+	<Transition name="fade">
+		<SlideViewer v-if="slideArray.length > 0 && slideIndex !== null" :slideArray="slideArray" :slideIndex="slideIndex" />
+	</Transition>
 
 	<MainHeader v-if="!isMobile" />
 
