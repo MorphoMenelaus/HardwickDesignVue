@@ -1,5 +1,4 @@
 <template>
-
 	<main>
 		<div class="centered">
 			<h1 id="not-found">404</h1>
@@ -10,7 +9,6 @@
 			</h3>
 		</div>
 	</main>
-
 </template>
 
 <style scoped>

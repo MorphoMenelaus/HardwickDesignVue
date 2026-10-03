@@ -1,11 +1,86 @@
 @import './base.css';
 
-a,
+#view {
+	background: linear-gradient(rgb(114, 168, 190), rgb(219, 240, 219) 90%);
+	position: relative;
+	box-shadow: rgb(18, 65, 135) 0px 4px 10px 1px;
+	min-height: calc(100vh - 14em);
+	overflow: hidden;
+	border-bottom: 2px solid red;
+	z-index: 1;
+}
+
+#page-layout {
+	width: 95%;
+	margin: auto;
+}
+
 .green {
 	text-decoration: none;
 	color: hsla(160, 100%, 37%, 1);
 	transition: 0.4s;
 	padding: 3px;
+}
+
+.success {
+	color: #00ff00;
+}
+
+.error {
+	color: #ff0000;
+}
+
+.warning {
+	color: #ffff00;
+}
+
+.btn {
+	margin: .5em 0;
+	padding: .7em 1em;
+	text-align: center;
+	text-overflow: ellipsis;
+	background-color: #e0e8f0;
+	box-shadow: inset -2px -2px 5px rgba(0, 0, 0, .35);
+	border-radius: 0.5em;
+	overflow: hidden;
+	cursor: pointer;
+	user-select: none;
+}
+
+.btn:hover {
+	color: #ddd;
+	background-color: #185abc;
+}
+
+.linkedin-icon,
+.email-icon,
+.personal-icon {
+	position: relative;
+	padding-right: 4em !important;
+}
+
+.linkedin-icon::after,
+.email-icon::after,
+.personal-icon::after {
+	content: '';
+	position: absolute;
+	top: 6px;
+	right: 12px;
+	width: 30px;
+	height: 30px;
+}
+
+.linkedin-icon::after {
+	border-radius: 4px;
+	background: url(../img/linkedIn_logo.png) 0 0 / contain no-repeat;
+}
+
+.email-icon::after {
+	background: url(../img/email_send.png) 0 0 / contain no-repeat;
+}
+
+.personal-icon::after {
+	background: url(../img/Chris_Hardwick_200.jpg) 0 0 / contain no-repeat;
 }
 
 .fade-enter-active,
@@ -57,18 +132,121 @@ a,
 	opacity: 0;
 }
 
-@media (hover: hover) {
-	a:hover {
-		background-color: hsla(160, 100%, 37%, 0.2);
+.spinner-comet {
+	width: 72px;
+	height: 72px;
+	border-radius: 50%;
+	/* background: conic-gradient(transparent 10%, #5ca8f6); */
+	background: conic-gradient(transparent 10%, #5ce1f6);
+	-webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 0);
+	mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 0);
+	animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
 	}
 }
 
-@media (max-width: 767px) {}
+.spinner-pulse,
+.spinner-pulse::before,
+.spinner-pulse::after {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: #10B981;
+	animation: pulse 1.2s infinite ease-in-out both;
+}
 
-@media (min-width: 768px) {}
+.spinner-pulse {
+	display: flex;
+	position: relative;
+	margin: 0 auto;
+}
 
-@media (min-width: 992px) {}
+.spinner-pulse::before,
+.spinner-pulse::after {
+	content: '';
+	position: absolute;
+	top: 0;
+}
 
-@media (min-width: 1200px) {}
+.spinner-pulse::before {
+	left: -20px;
+	animation-delay: -0.32s;
+}
 
-@media (min-width: 1920px) {}
+.spinner-pulse::after {
+	left: 20px;
+	animation-delay: -0.16s;
+}
+
+@keyframes pulse {
+
+	0%,
+	80%,
+	100% {
+		transform: scale(0);
+		opacity: 0.3;
+	}
+
+	40% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.grecaptcha-badge {
+	bottom: 3em !important;
+	z-index: 10000 !important;
+}
+
+/* @media (hover: hover) {
+	a:hover {
+		background-color: hsla(160, 100%, 37%, 0.2);
+	}
+} */
+
+@media (max-width: 767px) {
+	#view {
+		margin-bottom: 3em;
+	}
+
+}
+
+@media (max-width: 1023px) {
+	#view {
+		margin-top: 4em;
+	}
+}
+
+@media (min-width: 768px) {
+	#page-layout {
+		width: 90%;
+	}
+}
+
+@media (min-width: 992px) {
+	#page-layout {
+		width: 85%;
+	}
+}
+
+@media (min-width: 1024px) {
+	#page-layout {
+		width: 80%;
+	}
+}
+
+@media (min-width: 1200px) {
+	#page-layout {
+		width: 75%;
+	}
+}
+
+@media (min-width: 1920px) {
+	#page-layout {
+		width: 70%;
+	}
+}

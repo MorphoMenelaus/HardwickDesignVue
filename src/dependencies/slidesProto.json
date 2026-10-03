@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Tradeshow proposal animation for art exhibit at ICFF Show",
+    "image": "TradeShowReduxSR_0101",
+    "location": "/prototyping"
+  },
+  {
+    "id": 2,
+    "title": "A custom art lamp for the tradeshow proposal animation for art exhibit at ICFF Show",
+    "image": "TradeShowReduxSR_0252",
+    "location": "/prototyping"
+  },
+  {
+    "id": 3,
+    "title": "A tradeshow proposal animation for custom Seascape Lamps products for Interior Design show in LA",
+    "image": "SeascapeTradeshow001",
+    "location": "/prototyping"
+  },
+  {
+    "id": 4,
+    "title": "Tradeshow proposal animation for art exhibit at ICFF Show",
+    "image": "TradeShowReduxSR_0238",
+    "location": "/prototyping"
+  },
+  {
+    "id": 5,
+    "title": "A tradeshow proposal animation for custom Seascape Lamps products for Interior Design show in LA",
+    "image": "SeascapeTradeshow002",
+    "location": "/prototyping"
+  },
+  {
+    "id": 6,
+    "title": "A tradeshow proposal animation for custom Seascape Lamps products for Interior Design show in LA",
+    "image": "SeacapeBooth",
+    "location": "/prototyping"
+  }
+]

@@ -17,8 +17,8 @@ class Storage {
 	 */
 
 	constructor(parentKey, storageType) {
-		this.parentKey = parentKey || "cshApp";
-		this.storageType = storageType || "local";
+		this.parentKey = parentKey || 'cshApp';
+		this.storageType = storageType || 'local';
 	}
 
 	getstorageKey() {
@@ -28,7 +28,7 @@ class Storage {
 	get(key = this.parentKey) {
 		let store = {};
 		switch (this.storageType) {
-			case "session":
+			case 'session':
 				store = JSON.parse(sessionStorage.getItem(key));
 				break;
 			default:
@@ -39,10 +39,10 @@ class Storage {
 
 	save(storage = null) {
 		if (!storage) {
-			throw new StorageError("Save method requires an object");
+			throw new StorageError('Save method requires an object');
 		}
 		switch (this.storageType) {
-			case "session":
+			case 'session':
 				sessionStorage.setItem(this.parentKey, JSON.stringify(storage));
 				break;
 			default:
@@ -53,17 +53,17 @@ class Storage {
 
 	add(key = null, storage = null) {
 		if (!key || !storage) {
-			throw new StorageError("Invalid Key Value pair arguments");
+			throw new StorageError('Invalid Key Value pair arguments');
 		}
 		let store = {};
 		switch (this.storageType) {
-			case "session":
-				store = JSON.parse(sessionStorage.getItem(this.parentKey) || "{}");
+			case 'session':
+				store = JSON.parse(sessionStorage.getItem(this.parentKey) || '{}');
 				store[key] = storage;
 				sessionStorage.setItem(this.parentKey, JSON.stringify(store));
 				break;
 			default:
-				store = JSON.parse(localStorage.getItem(this.parentKey) || "{}");
+				store = JSON.parse(localStorage.getItem(this.parentKey) || '{}');
 				store[key] = storage;
 				localStorage.setItem(this.parentKey, JSON.stringify(store));
 		}
@@ -72,17 +72,17 @@ class Storage {
 
 	delete(key = null) {
 		if (!key) {
-			throw new StorageError("Delete method requires a key");
+			throw new StorageError('Delete method requires a key');
 		}
 		let store = {};
 		switch (this.storageType) {
-			case "session":
-				store = JSON.parse(sessionStorage.getItem(this.parentKey) || "{}");
+			case 'session':
+				store = JSON.parse(sessionStorage.getItem(this.parentKey) || '{}');
 				delete store[key];
 				sessionStorage.setItem(this.parentKey, JSON.stringify(store));
 				break;
 			default:
-				store = JSON.parse(localStorage.getItem(this.parentKey) || "{}");
+				store = JSON.parse(localStorage.getItem(this.parentKey) || '{}');
 				delete store[key];
 				localStorage.setItem(this.parentKey, JSON.stringify(store));
 		}
@@ -91,7 +91,7 @@ class Storage {
 
 	deleteAll() {
 		switch (this.storageType) {
-			case "session":
+			case 'session':
 				sessionStorage.removeItem(this.parentKey);
 				break;
 			default:
@@ -101,7 +101,7 @@ class Storage {
 	}
 }
 
-let onsiteServerUrl = "";
+let onsiteServerUrl = '';
 const onsiteUrlService = {
 	set(url) {
 		onsiteServerUrl = url;
@@ -116,7 +116,7 @@ const stateUpdateService = {
 	setState(state) {
 		appStateUpdate = state;
 		// Custom window event tells the parent App.vue to update the appState in the Vue instance
-		dispatchCustomEvent("appStateChange");
+		dispatchCustomEvent('appStateChange');
 	},
 	getState() {
 		return appStateUpdate;
@@ -136,7 +136,7 @@ const routerStateService = {
 
 async function addUserLog(appState = null, actionPerformed = null) {
 	if (!appState || !actionPerformed) {
-		throw new AddUserLogError("Invalid or missing arguments");
+		throw new AddUserLogError('Invalid or missing arguments');
 	}
 
 	try {
@@ -147,12 +147,12 @@ async function addUserLog(appState = null, actionPerformed = null) {
 		};
 
 		let headerObj = new Headers();
-		headerObj.append("Authorization", `Bearer ${appState.accessToken}`);
-		headerObj.append("Content-Type", "application/json; charset=utf-8");
-		let requestUrl = new URL("/api/userlogs", onsiteServerUrl || window.location.origin);
+		headerObj.append('Authorization', `Bearer ${appState.accessToken}`);
+		headerObj.append('Content-Type', 'application/json; charset=utf-8');
+		let requestUrl = new URL('/api/userlogs', onsiteServerUrl || window.location.origin);
 
 		let request = new Request(requestUrl.toString(), {
-			method: "POST",
+			method: 'POST',
 			headers: headerObj,
 			body: JSON.stringify(body),
 		});
@@ -164,7 +164,7 @@ async function addUserLog(appState = null, actionPerformed = null) {
 }
 
 function toTitleCase(str) {
-	let spaced = str.replace(/([a-z])([A-Z])/g, "$1 $2");
+	let spaced = str.replace(/([a-z])([A-Z])/g, '$1 $2');
 	return `${spaced.charAt(0).toUpperCase()}${spaced.slice(1)}`;
 }
 
@@ -179,15 +179,15 @@ function isUTCtime(str) {
 }
 
 function sendAnalyticsEvent(eventType, method) {
-	gtag("event", eventType, {
+	gtag('event', eventType, {
 		method: method,
 		page_location: window.location.href,
 	});
 }
 
 function isObjNullOrEmpty(val) {
-	if (typeof val === "undefined") return true;
-	let isObject = typeof val === "object" && val !== null && !Array.isArray(val);
+	if (typeof val === 'undefined') return true;
+	let isObject = typeof val === 'object' && val !== null && !Array.isArray(val);
 	return !isObject || Object.keys(val).length === 0;
 }
 
@@ -204,7 +204,7 @@ function dispatchCustomEvent(name, payload = {}) {
 async function tokenCheck(appState) {
 	// Check if the refresh token is valid and is no older that the max allowed by the server.
 	if (!appState?.accessToken || !appState?.refreshToken) {
-		throw new TokenCheckError("Invalid or missing arguments");
+		throw new TokenCheckError('Invalid or missing arguments');
 	}
 
 	let body = {
@@ -214,11 +214,11 @@ async function tokenCheck(appState) {
 
 	try {
 		let headerObj = new Headers();
-		headerObj.append("Content-Type", "application/json; charset=utf-8");
-		let requestUrl = new URL("/api/auth/tokencheck", onsiteServerUrl || window.location.origin);
+		headerObj.append('Content-Type', 'application/json; charset=utf-8');
+		let requestUrl = new URL('/api/auth/tokencheck', onsiteServerUrl || window.location.origin);
 
 		let request = new Request(requestUrl.toString(), {
-			method: "POST",
+			method: 'POST',
 			headers: headerObj,
 			body: JSON.stringify(body),
 		});
@@ -241,7 +241,7 @@ async function tokenCheck(appState) {
 async function accessTokenCheck(appState) {
 	// Check if the access token is valid and not expired.
 	if (!appState?.accessToken) {
-		throw new TokenCheckError("Invalid or missing arguments");
+		throw new TokenCheckError('Invalid or missing arguments');
 	}
 
 	let body = {
@@ -250,11 +250,11 @@ async function accessTokenCheck(appState) {
 
 	try {
 		let headerObj = new Headers();
-		headerObj.append("Content-Type", "application/json; charset=utf-8");
-		let requestUrl = new URL("/api/auth/tokenexpired", onsiteServerUrl || window.location.origin);
+		headerObj.append('Content-Type', 'application/json; charset=utf-8');
+		let requestUrl = new URL('/api/auth/tokenexpired', onsiteServerUrl || window.location.origin);
 
 		let request = new Request(requestUrl.toString(), {
-			method: "POST",
+			method: 'POST',
 			headers: headerObj,
 			body: JSON.stringify(body),
 		});
@@ -282,11 +282,11 @@ async function refreshAccessToken(appState) {
 		};
 
 		let headerObj = new Headers();
-		headerObj.append("Content-Type", "application/json; charset=utf-8");
-		let requestUrl = new URL("/api/auth/refresh", onsiteServerUrl || window.location.origin);
+		headerObj.append('Content-Type', 'application/json; charset=utf-8');
+		let requestUrl = new URL('/api/auth/refresh', onsiteServerUrl || window.location.origin);
 
 		let request = new Request(requestUrl.toString(), {
-			method: "POST",
+			method: 'POST',
 			headers: headerObj,
 			body: JSON.stringify(body),
 		});
@@ -296,11 +296,11 @@ async function refreshAccessToken(appState) {
 		if (!response.ok) {
 			let res = {
 				code: response.status,
-				message: response.message ? response.message : "Account is already logged into on another device",
+				message: response.message ? response.message : 'Account is already logged into on another device',
 				success: response.ok,
 				forced: true,
 			};
-			dispatchCustomEvent("forceLogout", res);
+			dispatchCustomEvent('forceLogout', res);
 			return res;
 		}
 
@@ -308,7 +308,7 @@ async function refreshAccessToken(appState) {
 
 		if (data?.code === 403) {
 			data.forced = true;
-			dispatchCustomEvent("forceLogout", data);
+			dispatchCustomEvent('forceLogout', data);
 		}
 
 		let accessToken = null;
@@ -335,9 +335,9 @@ async function refreshAccessToken(appState) {
 let refreshTokenPromise = null;
 
 async function tokenInterceptFetch(request) {
-	const appState = JSON.parse(localStorage.getItem("cshApp")) || {};
+	const appState = JSON.parse(localStorage.getItem('cshApp')) || {};
 	if (isObjNullOrEmpty(appState)) {
-		throw new RefreshTokenError("Invalid or missing appState");
+		throw new RefreshTokenError('Invalid or missing appState');
 	}
 
 	try {
@@ -353,12 +353,12 @@ async function tokenInterceptFetch(request) {
 
 			const newaccessToken = await refreshTokenPromise;
 
-			request.headers.set("Authorization", `Bearer ${newaccessToken}`);
+			request.headers.set('Authorization', `Bearer ${newaccessToken}`);
 			response = await fetch(request);
 		}
 		return response;
 	} catch (error) {
-		dispatchCustomEvent("forceLogout", error);
+		dispatchCustomEvent('forceLogout', error);
 		return Promise.reject(error);
 	}
 }

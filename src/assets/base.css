@@ -19,8 +19,10 @@
 
 	--vt-c-text-light-1: var(--vt-c-indigo);
 	--vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+	--vt-c-text-light-3: rgba(24, 24, 24, 0.80);
 	--vt-c-text-dark-1: var(--vt-c-white);
 	--vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+	--vt-c-text-dark-3: rgba(245, 245, 245, 0.80);
 }
 
 /* semantic color variables for this project */
@@ -66,7 +68,7 @@ body {
 	margin: 0;
 	padding: 0;
 	min-height: 100vh;
-	color: var(--color-text);
+	color: var(--vt-c-text-light-1);
 	background: var(--color-background-blue);
 	transition:
 		color 0.5s,
@@ -85,7 +87,7 @@ body {
 		'Droid Sans',
 		'Helvetica Neue',
 		sans-serif;
-	font-size: 16px;
+	font-size: clamp(16px, 1vw, 22px);
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -100,35 +102,64 @@ body {
 		"wdth" 100;
 }
 
-.julius-sans {
-	font-family: "Julius Sans One", sans-serif;
-	font-weight: 400;
+.roboto {
+	font-family: "Roboto", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	font-variation-settings:
+		"wdth" 100;
+}
+
+.russo-one {
+	font-family: "Russo One", sans-serif;
+	font-style: normal;
+}
+
+.amaranth {
+	font-family: "Amaranth", sans-serif;
+	font-style: normal;
+}
+
+.amaranth-italic {
+	font-family: "Amaranth", sans-serif;
+	font-style: italic;
+}
+
+.teko {
+	font-family: "Teko", sans-serif;
+	font-optical-sizing: auto;
 	font-style: normal;
 }
 
 h1 {
-	font-size: 4em;
-	line-height: 2.25em;
+	font-size: 3em;
+	line-height: 1.2em;
 }
 
 h2 {
-	font-size: 3em;
-	line-height: 1.625em;
+	font-size: 2.5em;
+	line-height: 1.2em;
 }
 
 h3 {
 	font-size: 2em;
-	line-height: 1.5em;
+	line-height: 1.2em;
 }
 
 h4 {
-	font-size: 1.75em;
-	line-height: 1.5em;
+	font-size: 1.25em;
+	line-height: 1.2em;
 }
 
 p {
 	font-size: 1em;
-	line-height: 1.5em;
+	line-height: 1.2em;
+}
+
+.page-header {
+	margin: 1em auto;
+	font-size: 2.5em;
+	text-align: center;
 }
 
 .text-stroke {
@@ -139,9 +170,40 @@ p {
 		-1px 1px 0px #000;
 }
 
+.text-glow-yellow {
+	text-shadow:
+		1px 1px 10px rgb(255 255 0 / 60%),
+		-1px -1px 10px rgb(255 255 0 / 60%),
+		1px -1px 10px rgb(255 255 0 / 60%),
+		-1px 1px 10px rgb(255 255 0 / 60%);
+}
+
+.text-glow-lightblue {
+	text-shadow:
+		1px 1px 10px rgb(163 211 255 / 70%),
+		-1px -1px 10px rgb(163 211 255 / 70%),
+		1px -1px 10px rgb(163 211 255 / 70%),
+		-1px 1px 10px rgb(163 211 255 / 70%);
+}
+
 .text-center {
 	display: block;
 	text-align: center;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.block-center {
+	display: block;
+	margin: auto;
+}
+
+.flex-center {
+	display: flex;
+	justify-self: center;
+	align-self: center;
 }
 
 @media (max-width: 767px) {}

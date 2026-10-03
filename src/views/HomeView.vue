@@ -1,39 +1,25 @@
 <script setup>
+import { inject } from 'vue';
+import Copyright from '@/components/Copyright.vue';
+import CarouselBanner from '@/components/CarouselBanner.vue';
+import FrontPageCTA from '@/components/FrontPageCTA.vue';
+// const copyright = inject('copyright');
 </script>
 
 <template>
-
 	<main>
-		<div id="main-home-layout">
-			<div id="title-block">
-				<div>
-					<h1 id="name-title" class="text-center text-stroke">Company Name</h1>
-					<div>
-						<h2></h2>
-						<h3></h3>
-						<h3></h3>
-						<span class="text-center">City, State</span>
-					</div>
-				</div>
-			</div>
-		</div>
+		<CarouselBanner />
+		<!-- <div id="page-layout" class="main-home-layout">
+			<h1 id="name-title" class="amaranth text-center">Hardwick Web Design</h1>
+		</div> -->
+		<FrontPageCTA />
+		<Copyright />
 	</main>
-
 </template>
 
 <style scoped>
-#main-home-layout {
+.main-home-layout {
 	margin: 1em auto;
 	padding: 1em;
-}
-
-.tagline-box {
-	position: relative;
-	border: 1px #777 solid;
-	background-color: #333;
-	padding: 15px 30px;
-	border-radius: 8px;
-	width: fit-content;
-	margin: 0 auto 30px;
 }
 </style>
