@@ -55,11 +55,12 @@ onBeforeUnmount(() => {
 <template>
 	<main>
 		<div id="page-layout">
-			<h2 class="page-header amaranth">Tech Marketing Design</h2>
+			<h2 class="page-header amaranth">Technical Marketing & Design</h2>
 			<p>
-				Technical catalogs and brochures geared toward best accepted standards can contain the necessary advanced information to assign your
-				products and services the authority of industry technicians and experts. Hardwick Design has worked with many industries and can
-				present products in detail and reach new tech and manufacturing clientele. No detail is too small for a technically minded client.
+				Win over technical buyers with precision-engineered marketing materials. I design technical advertisements, catalogs and brochures
+				that meet rigid industry standards while delivering the advanced data your audience needs to trust your brand. Hardwick Design
+				partners with businesses across the tech and manufacturing sectors to turn complex product specifications into powerful sales tools.
+				I sweat the small stuff so you can reach new clients.
 			</p>
 			<p>
 				Check out my <RouterLink to="/pdfs" title="Online and Print Catalog PDFs">PDF gallery</RouterLink> for catalogs and other tech

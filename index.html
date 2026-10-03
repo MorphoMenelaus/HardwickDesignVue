@@ -3,12 +3,11 @@
 
 <head>
 	<meta charset="UTF-8">
-	<!-- <meta name="robots" content="noindex, follow"> -->
-	<meta name="robots" content="index, follow">
+	<meta name="robots" content="%VITE_META_ROBOTS%">
 	<link rel="icon" href="/favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Hardwick Design | Interactive Multi-media Designs</title>
-		<meta name="title" content="Hardwick Web Design | Interactive Multi-media Designs">
+	<meta name="title" content="Hardwick Web Design | Interactive Multi-media Designs">
 	<meta name="description"
 		content="Chris Hardwick is a creative and experienced website and web application developer with over 6 years of experience creating UI excellence and fluid User Experiences, bringing modern responsive web environments that engage users and also has an additional 8 years of graphic design and publishing expertise that was perfected in the years prior to entering the web development world. Modern website environments are necessarily and universally graphic and visual. Using indispensable languages and markup &ndash; HTML, CSS, JavaScript, Bootstrap, C#/ASP.Net &#40;MVC&#41; &ndash; Chris has experience with the entire design process, from development to delivery.">
 	<meta name="author" content="hardwick.design">
@@ -21,9 +20,32 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Russo+One&family=Teko:wght@300..700&display=swap"
 		rel="stylesheet">
+	<!-- Google Tag Manager -->
+	<script>(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', '%VITE_GA_TAG_MANAGER_ID%');</script>
+	<!-- End Google Tag Manager -->
 </head>
 
 <body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=%VITE_GA_TAG_MANAGER_ID%" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA_MEASUREMENT_ID%"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', '%VITE_GA_MEASUREMENT_ID%');
+	</script>
 	<noscript>
 		<div style="width:100vw;height:100vh;">
 			<h1 style="text-align: center;">Hardwick Design</h1>

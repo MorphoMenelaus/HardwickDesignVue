@@ -14,19 +14,18 @@ defineProps({
 				<h2 class="panel-header amaranth top-header">We can build your custom website together!</h2>
 				<div class="panel-inner">
 					<p>
-						With years of custom responsive web design experience and a strong emphasis on semantic markup with support for accessibility,
-						including WCAG standards for ADA compliance, most any website&#47;e&dash;commerce needs can be met.
+						With years of custom responsive web design experience and an emphasis on semantic markup and WCAG standards for accessibility,
+						most any website / e-commerce need can be met.
 						<a href="/about" title="Get a quote">Get&nbsp;a&nbsp;quote</a> for your next project, today.
 					</p>
-					<p>This website you are currently visiting was baked in the kitchen of Hardwick Web Designs.</p>
 					<p>
+						This website was created using modern web standards and technologies that perform high on SEO and render fast, reponsive and
+						efficient user interfaces.
+					</p>
+					<p v-if="!isMobile">
 						Here are some examples of Hardwick Design's responsive web development. These are shrunk down to fit the display box and are
 						meant as a functional representation. Please view full website to get a real sense of the site and it's responsiveness.
 					</p>
-					<sub>
-						<strong>Note&#058;</strong> Embedded website previews are disabled on mobile devices with a screen smaller than 1024 pixels
-						wide. This is due to the space and bandwidth that embedded sites would put on your mobile device.
-					</sub>
 				</div>
 			</div>
 			<div class="two-panel-item">
@@ -58,8 +57,7 @@ defineProps({
 				</h2>
 				<div class="panel-inner">
 					<p>
-						They wanted a way to showcase their tradeshow, POP, and food service display cases while also showing the sheet plastic stock.
-						Due to the needs from COVID-19 this website now prominently displays COVID-19 protection devices.
+						This client wanted to showcase their tradeshow, POP, and food service display cases while also showing the sheet plastic stock.
 					</p>
 					<picture>
 						<source srcset="/img/GPP.webp" type="image/webp" />
@@ -127,7 +125,7 @@ defineProps({
 				</h2>
 				<div class="panel-inner">
 					<p>
-						This photography blog is a WordPress&dash;based website. When the client prefers a WordPress CMS, that can be accommodated.
+						This photography blog is a WordPress&dash;based website. When a client prefers a WordPress CMS, that can be accommodated.
 						Using customized themes or a theme of your choice, any needs can be met.
 					</p>
 					<p>I also consult on WordPress setups and customizations.</p>
