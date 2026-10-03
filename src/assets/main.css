@@ -86,7 +86,7 @@
 .fade-enter-active,
 .fade-leave-active {
 	transition: opacity .3s ease;
-	opacity: 100;
+	opacity: 1;
 }
 
 .fade-enter-from,
@@ -94,11 +94,11 @@
 	opacity: 0;
 }
 
-.slide-down-enter-active,
+/* .slide-down-enter-active,
 .slide-down-leave-active {
 	transition: height .5s, opacity .2s ease;
 	height: auto;
-	opacity: 100;
+	opacity: 1;
 	interpolate-size: allow-keywords;
 }
 
@@ -107,6 +107,35 @@
 	transition: height .5s, opacity .2s ease .3s;
 	height: 0;
 	opacity: 0;
+} */
+
+/* Define the active transition behaviors */
+.slide-down-enter-active {
+	transition: height 0.5s ease, opacity 0.5s ease;
+	overflow: hidden;
+	interpolate-size: allow-keywords;
+	/* Ensures height: auto can animate */
+}
+
+.slide-down-leave-active {
+	/* No delay on opacity when leaving so it fades cleanly */
+	transition: height 0.5s ease, opacity 0.3s ease;
+	overflow: hidden;
+	interpolate-size: allow-keywords;
+}
+
+/* Define the starting state for entering & ending state for leaving */
+.slide-down-enter-from,
+.slide-down-leave-to {
+	height: 0;
+	opacity: 0;
+}
+
+/* Define the ending state for entering & starting state for leaving */
+.slide-down-enter-to,
+.slide-down-leave-from {
+	height: auto;
+	opacity: 1;
 }
 
 .slide-up-enter-active,

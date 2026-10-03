@@ -124,7 +124,7 @@ onBeforeUnmount(() => {
 	display: none;
 }
 
-.carousel__pagination {
+#carousel-proto .carousel__pagination {
 	top: 0.5em;
 	height: fit-content;
 }
@@ -164,7 +164,7 @@ onBeforeUnmount(() => {
 		height: calc(100vh - 14em);
 	}
 
-	.carousel__pagination {
+	#carousel-proto .carousel__pagination {
 		top: 0.8em;
 	}
 }

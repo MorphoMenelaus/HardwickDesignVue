@@ -113,11 +113,12 @@ onBeforeUnmount(() => {
 <template>
 	<main>
 		<div id="page-layout">
-			<h2 class="page-header amaranth">Product Catalogs &amp; Tech Sheets for Print or Web</h2>
+			<h2 class="page-header amaranth">Product Catalogs & Tech Sheets</h2>
 			<p>
-				Catalogs and brochures are powerful mediums for communicating company identity, show off products and services, and portray a strong
-				vision. Professional designs reinforce a business's reputation and commitment to their customers and leave a lasting impression.
-				Hardwick Designs has worked with many industries to tell their stories and reach new clientele.
+				High-quality technical catalogs and brochures do more than showcase your products—they build industry authority. By aligning with
+				industry standards, your marketing materials will deliver the precise, high-level data that engineers and experts demand. Hardwick
+				Design translates complex specs into clear, detailed layouts that captivate tech and manufacturing clients. Because when you are
+				marketing to technically minded buyers, no detail is too small.
 			</p>
 		</div>
 		<div id="pdf-viewer-main">

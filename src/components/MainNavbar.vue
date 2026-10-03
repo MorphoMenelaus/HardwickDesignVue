@@ -48,31 +48,6 @@ onUnmounted(() => {
 </script>
 
 <template>
-	<!-- <div id="nav-container" :class="isMobile ? 'mobile' : ''"> -->
-	<!-- <div v-if="isMobile" class="mobile-menu-icon">
-			<div id="hamburger" @click="showHideNav()">
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-			<div class="home-title">
-				<RouterLink to="/" title="Home">Home</RouterLink>
-			</div>
-		</div>
-
-		<Transition name="slide-down">
-			<nav :class="['navbar', { 'is-scrolled': isScrolled }]" aria-label="main menu" v-if="!isMobile">
-				<div class="nav-container">
-					<div class="logo">MyBrand</div>
-					<div class="menu">
-						<RouterLink to="/" title="Home" class="home-icon">Home</RouterLink>
-						<RouterLink to="/about" title="About">About</RouterLink>
-					</div>
-				</div>
-			</nav>
-		</Transition> 
-	</div> -->
-	<!-- <nav class="russo-one" :class="['navbar', { 'is-scrolled': isScrolled }]"> -->
 	<div id="mobile-container">
 		<div v-if="isMobile" class="mobile-menu-icon">
 			<div id="hamburger" @click="showHideNav()">
@@ -115,7 +90,6 @@ onUnmounted(() => {
 	position: sticky;
 	top: 0;
 	z-index: 1000;
-
 	transition: all 0.3s ease;
 	border-bottom: 1px solid #eee;
 	color: var(--vt-c-text-light-3);
@@ -129,7 +103,6 @@ onUnmounted(() => {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0 20px;
 }
 
 .logo {
@@ -154,7 +127,6 @@ onUnmounted(() => {
 	background-color: rgb(118, 171, 191);
 	background-image: linear-gradient(rgb(212, 232, 230), rgb(114, 168, 190) 90%);
 	transition: background-color 0.3s;
-
 	cursor: pointer;
 }
 
@@ -199,7 +171,9 @@ a.router-link-active {
 }
 
 .mobile-menu-icon {
-	position: fixed;
+	display: flex;
+	flex-flow: row nowrap;
+	position: absolute;
 	top: 0;
 	right: 0;
 	left: 0;
@@ -207,10 +181,10 @@ a.router-link-active {
 	height: 4.2em;
 	background-color: rgb(114, 168, 190);
 	background: linear-gradient(rgb(212, 232, 230), rgb(114, 168, 190) 90%);
+	box-shadow: 0px 1px 6px rgb(0 0 0 / 75%);
 	z-index: 2;
 	overflow: hidden;
 }
-
 #hamburger {
 	display: flex;
 	flex-direction: column;
@@ -229,27 +203,17 @@ a.router-link-active {
 	border: 1px #fff solid;
 }
 
-.mobile .navbar {
-	position: absolute;
-	overflow: hidden;
-}
-
-.mobile-menu-icon {
-	display: flex;
-	flex-flow: row nowrap;
-	top: 0;
-	position: absolute;
+.mobile.navbar {
+	position: fixed;
+	top: 4.25em;
 }
 
 .mobile .menu {
-	color: #333;
+	position: relative;
 	display: flex;
 	flex-direction: column;
-	position: absolute;
-	top: calc(4em - 2px);
-	left: -1em;
-	right: 0;
-	width: calc(100vw + 1em);
+	width: 100vw;
+	color: #333;
 	overflow: hidden;
 }
 

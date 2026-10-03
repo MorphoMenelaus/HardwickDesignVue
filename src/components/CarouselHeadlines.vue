@@ -103,17 +103,8 @@ onBeforeUnmount(() => {
 	</div>
 </template>
 
-<style scoped>
-.headline {
-	font-size: 1em;
-}
-
-.headlines-container {
-	padding: 0 0.5em;
-	user-select: none;
-}
-
-.carousel__item {
+<style>
+#headlines-container .carousel__item {
 	text-transform: uppercase;
 	background-color: var(--wc-branding-accent-color);
 	background-color: rgb(131 153 193 / 60%);
@@ -127,6 +118,42 @@ onBeforeUnmount(() => {
 	font-weight: bold;
 	border-radius: 10px;
 }
+
+#headlines-container .carousel__viewport {
+	overflow: unset;
+}
+
+@media (min-width: 1024px) {
+	#headlines-container .carousel__viewport {
+		overflow: hidden;
+	}
+}
+</style>
+
+<style scoped>
+.headline {
+	font-size: 1em;
+}
+
+.headlines-container {
+	padding: 0 0.5em;
+	user-select: none;
+}
+
+/* #headlines-container .carousel__item {
+	text-transform: uppercase;
+	background-color: var(--wc-branding-accent-color);
+	background-color: rgb(131 153 193 / 60%);
+	background-image: radial-gradient(rgb(91 233 55 / 40%) 40%, rgb(41 38 163 / 30%) 90%);
+	color: #ddd;
+	padding: 1em;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	align-content: center;
+	font-weight: bold;
+	border-radius: 10px;
+} */
 
 .item-container {
 	background-image: linear-gradient(#0f438f, #020618);
