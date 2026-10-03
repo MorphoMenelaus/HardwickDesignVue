@@ -11,7 +11,7 @@ import ProfSkills from '@/components/ProfSkills.vue';
 <template>
 	<main>
 		<CarouselHeadlines />
-		<h1 class="page-header amaranth">Contact Hardwick Design</h1>
+		<h1 class="page-header amaranth">About Hardwick Web Design</h1>
 		<div class="two-panel-grid">
 			<div class="two-panel-item">
 				<div id="form-header">
@@ -26,7 +26,7 @@ import ProfSkills from '@/components/ProfSkills.vue';
 						More than 15 years experience delivering modern, clean production websites and graphic design assets with memorable branding.
 					</h4>
 				</div>
-				<ProfessionalProfile />
+				<ProfessionalProfile :bioPic="true" :quote="true" />
 				<ProfSkills />
 			</div>
 		</div>
@@ -74,6 +74,12 @@ h4 {
 p {
 	text-indent: 1.5em;
 	margin-bottom: 0.5em;
+}
+
+@media (max-width: 1023px) {
+	.page-header {
+		font-size: 2.2em;
+	}
 }
 
 @media (min-width: 1024px) {

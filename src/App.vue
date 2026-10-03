@@ -40,7 +40,12 @@ window.addEventListener('resize', () => {
 		<div class="spinner-comet"></div>
 	</div>
 	<Transition name="fade">
-		<SlideViewer v-if="slideArray.length > 0 && slideIndex !== null" :slideArray="slideArray" :slideIndex="slideIndex" />
+		<SlideViewer
+			v-if="slideArray.length > 0 && slideIndex !== null"
+			:slideArray="slideArray"
+			:slideIndex="slideIndex"
+			:isMobile="isMobile"
+		/>
 	</Transition>
 
 	<MainHeader v-if="!isMobile" />
@@ -53,16 +58,6 @@ window.addEventListener('resize', () => {
 </template>
 
 <style scoped>
-#view {
-	/* position: fixed;
-	top: 10em;
-	right: 0;
-	left: 0;
-	bottom: 4em;
-	max-height: calc(100vh - 14em);
-	overflow: hidden auto; */
-}
-
 .rotate-warning {
 	position: fixed;
 	inset: 0;
@@ -84,12 +79,9 @@ window.addEventListener('resize', () => {
 	align-content: center;
 	justify-content: center;
 	position: fixed;
-	top: 200px;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	inset: 0;
 	width: 100vw;
-	background-color: rgb(0 0 0 / 50%);
+	background-color: rgb(0 0 0 / 25%);
 	backdrop-filter: blur(5px);
 	transition: background-color 0.3 ease-in-out;
 	z-index: 15000;

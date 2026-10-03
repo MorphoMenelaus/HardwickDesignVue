@@ -29,9 +29,21 @@ function shuffleArray(array) {
 	}
 	return newArray;
 }
+const keyHandler = (event) => {
+	if (event.key === 'ArrowRight') {
+		carousel.value.next();
+	} else if (event.key === 'ArrowLeft') {
+		carousel.value.prev();
+	}
+};
 
 onMounted(() => {
 	shuffledSlides.value = shuffleArray(slides);
+	window.addEventListener('keydown', keyHandler);
+});
+
+onBeforeUnmount(() => {
+	window.removeEventListener('keydown', keyHandler);
 });
 </script>
 
@@ -67,7 +79,7 @@ onMounted(() => {
 
 #carousel-proto .carousel__item {
 	width: 100%;
-	font-size: 1.75em;
+	font-size: 1.4em;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -90,7 +102,7 @@ onMounted(() => {
 
 #carousel-proto .carousel__item img {
 	width: 100%;
-	height: 600px;
+	height: 300px;
 	object-fit: cover;
 	border-width: 0 2px;
 	border-style: solid;
@@ -110,30 +122,28 @@ onMounted(() => {
 #carousel-proto .carousel__prev,
 #carousel-proto .carousel__next {
 	display: none;
-	/* font-size: 4em;
-	width: 0.7em;
-	height: 0.7em; */
 }
 
-/* .carousel__pagination {
+.carousel__pagination {
 	top: 0.5em;
+	height: fit-content;
 }
 
 #carousel-proto .carousel__pagination-button {
 	height: 0.6em;
 	background-color: var(--vt-c-text-dark-2);
 	border-radius: 50%;
-	height: 20px !important;
-	width: 20px;
-} */
+	height: 15px !important;
+	width: 15px;
+}
 
-/* #carousel-proto .carousel__prev .carousel__icon {
+#carousel-proto .carousel__prev .carousel__icon {
 	border-radius: 0 10px 10px 0;
 }
 
 #carousel-proto .carousel__next .carousel__icon {
 	border-radius: 10px 0 0 10px;
-} */
+}
 
 #carousel-proto .carousel__pagination-button--active {
 	background-color: #5611bd;
@@ -145,8 +155,27 @@ onMounted(() => {
 }
 
 @media (min-width: 768px) {
+	#carousel-proto .carousel__pagination-button {
+		height: 20px !important;
+		width: 20px;
+	}
+
+	#carousel-proto .carousel__item img {
+		height: calc(100vh - 14em);
+	}
+
 	.carousel__pagination {
 		top: 0.8em;
+	}
+}
+
+@media (min-width: 1024px) {
+	#carousel-proto .carousel__item {
+		font-size: 1.75em;
+	}
+
+	#carousel-proto .carousel__item img {
+		height: 600px;
 	}
 }
 </style>

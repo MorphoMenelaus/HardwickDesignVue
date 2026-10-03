@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 import 'vue3-carousel/carousel.css';
 
@@ -7,18 +7,19 @@ const props = defineProps({
 	isMobile: Boolean,
 });
 
+const carousel = ref(null);
 const shuffledHeadlines = ref([]);
 
 const headlines = [
 	{
 		id: 1,
 		title: '',
-		headline: 'Creative and experienced web developement building striking and engaging websites',
+		headline: 'Creative and experienced web development; building striking and engaging websites',
 	},
 	{
 		id: 2,
 		title: '',
-		headline: 'More than 10 years of building modern, responsive user interfaces and fluid user experiences',
+		headline: 'More than 10 years building modern, responsive user interfaces and fluid user experiences',
 	},
 	{
 		id: 3,
@@ -28,24 +29,22 @@ const headlines = [
 	{
 		id: 4,
 		title: '',
-		headline:
-			'Build complete brand asset programs including logos, infographics, vector files, brochures, and digital ads',
+		headline: 'Building complete brand programs including logos, infographics, vector files, brochures, and digital assets',
 	},
 	{
 		id: 5,
 		title: '',
-		headline: '3D Modeling/Printing & Animation',
+		headline: '3D modeling, printing, rendering, and Animation',
 	},
 	{
 		id: 6,
 		title: '',
-		headline:
-			'Extensive experience creating drawings for technical or instructional manuals, and parts-breakout diagrams',
+		headline: 'Extensive experience creating illustrations and parts-breakout diagrams for technical or instructional manuals',
 	},
 	{
 		id: 7,
 		title: '',
-		headline: 'Custom resposive web development with emphasis on semantic and ADA accessibility compliance',
+		headline: 'Custom responsive web development with emphasis on semantic design and ADA accessibility compliance (WCAG)',
 	},
 ];
 
@@ -72,15 +71,27 @@ function shuffleArray(array) {
 	}
 	return newArray;
 }
+const keyHandler = (event) => {
+	if (event.key === 'ArrowRight') {
+		carousel.value.next();
+	} else if (event.key === 'ArrowLeft') {
+		carousel.value.prev();
+	}
+};
 
 onMounted(() => {
 	shuffledHeadlines.value = shuffleArray(headlines);
+	window.addEventListener('keydown', keyHandler);
+});
+
+onBeforeUnmount(() => {
+	window.removeEventListener('keydown', keyHandler);
 });
 </script>
 
 <template>
 	<div id="headlines-container">
-		<Carousel v-bind="config">
+		<Carousel v-bind="config" ref="carousel">
 			<Slide class="headlines-container" v-for="slide in shuffledHeadlines" :key="slide.id">
 				<div class="carousel__item">
 					<div class="item-container">

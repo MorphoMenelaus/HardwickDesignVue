@@ -125,7 +125,6 @@ onUnmounted(() => {
 }
 
 .nav-container {
-	/* max-width: 1200px; */
 	margin: 0 auto;
 	display: flex;
 	justify-content: center;
@@ -182,7 +181,6 @@ a.router-link-active {
 	right: 0;
 	left: 0;
 	z-index: 2;
-	/* box-shadow: 0px 6px 6px 8px #000; */
 }
 
 .home-title {
@@ -224,7 +222,6 @@ a.router-link-active {
 	border: 1px solid rgb(170 170 170 / 50%);
 	border-radius: 100%;
 	background-color: rgb(37, 89, 150);
-	/* background: var(--wc-c-black-blue); */
 }
 
 #hamburger div {
@@ -240,18 +237,15 @@ a.router-link-active {
 .mobile-menu-icon {
 	display: flex;
 	flex-flow: row nowrap;
-	/* width: 100%; */
 	top: 0;
 	position: absolute;
 }
 
 .mobile .menu {
-	/* background-color: var(--wc-branding-accent-dark); */
 	color: #333;
 	display: flex;
 	flex-direction: column;
 	position: absolute;
-	/* top: 3.4em; */
 	top: calc(4em - 2px);
 	left: -1em;
 	right: 0;

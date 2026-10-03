@@ -1,6 +1,11 @@
 <script setup>
 import { ref, provide, inject, watch, onMounted, onBeforeUnmount } from 'vue';
 import CarouselProto from '@/components/CarouselProto.vue';
+import Copyright from '@/components/Copyright.vue';
+
+defineProps({
+	isMobile: Boolean,
+});
 
 const showHideLoader = inject('showHideLoader');
 const baseUrl = inject('baseUrl');
@@ -73,19 +78,21 @@ onBeforeUnmount(() => {
 					my Tech Marketing Design page for more examples.
 				</p>
 				<p>It's very satisfying to physically hold an object you just created in a computer.</p>
-				<h4>My printer is capable of printing the following materials:</h4>
-				<div class="flex-list">
-					<ul>
-						<li>ABS</li>
-						<li>Polycarbonate</li>
-						<li>PETG</li>
-						<li>PLA</li>
-					</ul>
-					<ul>
-						<li>HIPS (High Impact Polystyrene)</li>
-						<li>PLA</li>
-						<li>TPU</li>
-					</ul>
+				<div v-if="!isMobile">
+					<h4>My printer is capable of printing the following materials:</h4>
+					<div class="flex-list">
+						<ul>
+							<li>ABS</li>
+							<li>Polycarbonate</li>
+							<li>PETG</li>
+							<li>PLA</li>
+						</ul>
+						<ul>
+							<li>HIPS (High Impact Polystyrene)</li>
+							<li>PLA</li>
+							<li>TPU</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -102,13 +109,13 @@ onBeforeUnmount(() => {
 				<h3 v-if="error" :class="error ? 'error' : ''">{{ error }}</h3>
 			</div>
 		</div>
+		<Copyright />
 	</main>
 </template>
 
 <style scoped>
 h4 {
 	font-size: 1.5em;
-	line-height: 2.5em;
 	text-align: center;
 }
 
@@ -141,7 +148,7 @@ p {
 .slideContainer {
 	width: 95%;
 	margin: 1em auto 2em;
-	padding: 0.25em;
+	padding: 1em;
 	background: rgb(255 255 255 / 20%);
 	border: 1px rgb(0 0 0 / 45%) solid;
 	border-radius: 14px;
@@ -152,8 +159,7 @@ p {
 	width: 100%;
 	gap: 1rem;
 	grid-template-columns: repeat(2, 1fr);
-	grid-auto-rows: 25vw;
-	/* grid-template-rows: 400px repeat(auto-fill, 400px) 400px; */
+	grid-auto-rows: 55vw;
 }
 
 .card {
@@ -188,6 +194,12 @@ p {
 	justify-content: center;
 }
 
+@media (max-width: 1023px) {
+	.page-header {
+		font-size: 2.2em;
+	}
+}
+
 @media (min-width: 768px) {
 	#headline-container {
 		grid-template-columns: repeat(2, 1fr);
@@ -201,6 +213,12 @@ p {
 @media (min-width: 992px) {
 	.cards {
 		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media (min-width: 1024px) {
+	.cards {
+		grid-auto-rows: 25vw;
 	}
 }
 

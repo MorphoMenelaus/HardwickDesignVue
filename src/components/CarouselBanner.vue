@@ -34,15 +34,22 @@ function shuffleArray(array) {
 	}
 	return newArray;
 }
+const keyHandler = (event) => {
+	if (event.key === 'ArrowRight') {
+		carousel.value.next();
+	} else if (event.key === 'ArrowLeft') {
+		carousel.value.prev();
+	}
+};
 
 onMounted(() => {
 	shuffledSlides.value = shuffleArray(slides);
-	// window.addEventListener('keydown', keyHandler);
+	window.addEventListener('keydown', keyHandler);
 });
 
-// onBeforeUnmount(() => {
-// 	window.removeEventListener('keydown', keyHandler);
-// });
+onBeforeUnmount(() => {
+	window.removeEventListener('keydown', keyHandler);
+});
 </script>
 
 <template>
@@ -118,21 +125,19 @@ onMounted(() => {
 #carousel-container .carousel__prev,
 #carousel-container .carousel__next {
 	display: none;
-	/* font-size: 4em;
-	width: 0.7em;
-	height: 0.7em; */
 }
 
 .carousel__pagination {
 	top: 0.5em;
+	height: fit-content;
 }
 
 #carousel-container .carousel__pagination-button {
 	height: 0.6em;
 	background-color: var(--vt-c-text-dark-2);
 	border-radius: 50%;
-	height: 20px !important;
-	width: 20px;
+	height: 15px !important;
+	width: 15px;
 }
 
 #carousel-container .carousel__prev .carousel__icon {
@@ -153,6 +158,11 @@ onMounted(() => {
 }
 
 @media (min-width: 768px) {
+	#carousel-container .carousel__pagination-button {
+		height: 20px !important;
+		width: 20px;
+	}
+
 	#carousel-container .carousel__item img {
 		height: calc(100vh - 14em);
 	}

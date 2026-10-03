@@ -74,7 +74,6 @@ onMounted(async () => {
 	border-radius: 8px;
 	margin: 1.8em auto 0;
 	padding: 1em 1.8em;
-	/* width: fit-content; */
 	width: 95%;
 	max-width: 80em;
 }

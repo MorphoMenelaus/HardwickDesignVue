@@ -1,5 +1,6 @@
 <script setup>
 import { ref, provide, inject, watch, onMounted, onBeforeUnmount } from 'vue';
+import Copyright from '@/components/Copyright.vue';
 
 const showHideLoader = inject('showHideLoader');
 const baseUrl = inject('baseUrl');
@@ -78,6 +79,7 @@ onBeforeUnmount(() => {
 				<h3 v-if="error" :class="error ? 'error' : ''">{{ error }}</h3>
 			</div>
 		</div>
+		<Copyright />
 	</main>
 </template>
 
@@ -133,6 +135,12 @@ p {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+}
+
+@media (max-width: 1023px) {
+	.page-header {
+		font-size: 2.2em;
+	}
 }
 
 @media (min-width: 768px) {

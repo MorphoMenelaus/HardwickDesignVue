@@ -213,10 +213,12 @@ onBeforeUnmount(() => {
 					</div>
 					<small class="text-center">
 						Your info will not be shared with anyone. See our
-						<router-link to="/about#privacy">Privacy Policy</router-link>.
+						<router-link to="/about#privacy" title="Privacy Policy">Privacy Policy</router-link>.
 					</small>
 					<div class="button-group">
-						<button class="btn send" type="submit" title="Send email" @click.prevent="contactHandler" :disabled="disabled">Send</button>
+						<button class="btn send email-icon" type="submit" title="Send email" @click.prevent="contactHandler" :disabled="disabled">
+							Send
+						</button>
 					</div>
 				</form>
 			</div>
@@ -226,7 +228,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 #view-inner {
-	padding: 0 1em 1em;
+	padding: 0;
 }
 
 #contact {
@@ -250,9 +252,8 @@ form {
 	align-items: center;
 	width: 95%;
 	max-width: 36em;
-	margin: 1em auto 0;
+	margin: 0 auto;
 	font-size: 1em;
-	/* background-color: var(--color-background-mute); */
 	padding: 1em;
 	border-radius: 10px;
 	border: 1px #333 solid;
@@ -297,6 +298,14 @@ textarea {
 	text-transform: uppercase;
 }
 
+.email-icon::after {
+	filter: invert(0.6);
+}
+
+.email-icon:hover::after {
+	filter: invert(0);
+}
+
 button:disabled {
 	background-color: #808080;
 	color: #434343;
@@ -328,6 +337,16 @@ button:disabled {
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-around;
+	}
+}
+
+@media (min-width: 1024px) {
+	#view-inner {
+		padding: 0 1em 1em;
+	}
+
+	form {
+		margin: 1em auto 0;
 	}
 }
 </style>

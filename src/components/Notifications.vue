@@ -23,7 +23,7 @@ const setClassName = () => {
 
 <template>
 	<Transition name="fade">
-		<main id="notification" v-if="notifyObject.message">
+		<div id="notification" v-if="notifyObject.message">
 			<div id="notify-box" class="text-center">
 				<h2 :class="setClassName()">
 					{{ notifyObject.message }}
@@ -40,7 +40,7 @@ const setClassName = () => {
 					Close
 				</button>
 			</div>
-		</main>
+		</div>
 	</Transition>
 </template>
 

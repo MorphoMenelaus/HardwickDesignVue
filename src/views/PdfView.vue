@@ -2,6 +2,7 @@
 import { ref, watch, onBeforeUnmount } from 'vue';
 import { onBeforeRouteUpdate } from 'vue-router';
 import VuePdfEmbed from 'vue-pdf-embed';
+import Copyright from '@/components/Copyright.vue';
 import pdfs from '@/dependencies/pdfFileList.json';
 
 onBeforeRouteUpdate((to, from) => {
@@ -44,7 +45,8 @@ const handleDocumentRender = () => {
 };
 const toggleShowAllPages = () => {
 	page.value = showAllPages.value ? null : 1;
-	scrollToId('paging');
+	let pageingId = props.isMobile ? 'pdf-container' : 'paging';
+	scrollToId(pageingId);
 };
 const handleDropdown = () => {
 	isLoading.value = true;
@@ -56,7 +58,8 @@ const handleProgress = (progress) => {
 };
 const handlepaging = (direction) => {
 	isLoading.value = true;
-	scrollToId('paging');
+	let pageingId = props.isMobile ? 'pdf-container' : 'paging';
+	scrollToId(pageingId);
 	if (direction === 'next' && page.value < pageCount.value) {
 		page.value++;
 	} else if (direction === 'prev' && page.value > 1) {
@@ -69,7 +72,8 @@ const handleSource = (source) => {
 	page.value = 1;
 	showAllPages.value = false;
 	pdfSource.value = source;
-	scrollToId('paging');
+	let pageingId = props.isMobile ? 'pdf-container' : 'paging';
+	scrollToId(pageingId);
 };
 const scrollToId = (id) => {
 	const element = document.getElementById(id);
@@ -120,17 +124,17 @@ onBeforeUnmount(() => {
 			<div id="show-all">
 				<input
 					id="show-all-pages"
-					title="This option take a while to load and the pages may appear blank while loading"
+					title="This option takes a while to load and the pages may appear blank while loading"
 					v-model="showAllPages"
 					type="checkbox"
 					@change="toggleShowAllPages"
 				/>
-				<label for="show-all-pages" title="This option take a while to load and the pages may appear blank while loading"
+				<label for="show-all-pages" title="This option takes a while to load and the pages may appear blank while loading"
 					>Show all pages</label
 				>
 				<span class="show-all-warning">
-					Show all takes a while to load
-					<span class="info" title="This option take a while to load and the pages may appear blank while loading">🛈</span></span
+					Show all is slower to load
+					<span class="info" title="This option takes a while to load and the pages may appear blank while loading">🛈</span></span
 				>
 			</div>
 			<div id="paging">
@@ -232,15 +236,36 @@ onBeforeUnmount(() => {
 			<div id="paging-sidebar">
 				<div id="pageSelect">
 					Select Page:
-					<select v-model="page" v-if="pageCount" @change="handleDropdown" title="Select Page">
+					<select
+						v-model="page"
+						v-if="pageCount"
+						@change="handleDropdown"
+						:title="showAllPages ? 'Show all pages option is enabled' : 'Select Page'"
+						:disabled="showAllPages"
+					>
 						<option v-for="(item, index) in pageCount" :key="index" :value="item">Page {{ item }}</option>
 					</select>
 				</div>
-				<button class="btn" :disabled="page <= 1" @click="handlepaging('prev')" title="Previous Page">Previous Page</button>
-				<button class="btn" :disabled="page >= pageCount" @click="handlepaging('next')" title="Next Page">Next Page</button>
+				<button
+					class="btn"
+					:disabled="showAllPages || page <= 1"
+					@click="handlepaging('prev')"
+					:title="showAllPages ? 'Show all pages option is enabled' : 'Previous Page'"
+				>
+					Previous Page
+				</button>
+				<button
+					class="btn"
+					:disabled="showAllPages || page >= pageCount"
+					@click="handlepaging('next')"
+					:title="showAllPages ? 'Show all pages option is enabled' : 'Next Page'"
+				>
+					Next Page
+				</button>
 				Page: {{ page }} / {{ pageCount }}
 			</div>
 		</div>
+		<Copyright />
 	</main>
 </template>
 
@@ -268,7 +293,6 @@ p {
 }
 
 .vue-pdf-embed {
-	/* width: 95vw; */
 	width: 100%;
 	margin: auto;
 	overflow: hidden auto;
@@ -461,6 +485,10 @@ label[for='show-all-pages'] {
 	#view {
 		margin-top: 4em;
 		margin-bottom: 3em;
+	}
+
+	.page-header {
+		font-size: 2.2em;
 	}
 }
 

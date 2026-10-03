@@ -1,8 +1,11 @@
 <script setup>
+// Define props for optional sections to display
 defineProps({
 	profileLink: Boolean,
 	linkedinLink: Boolean,
 	header: Boolean,
+	bioPic: Boolean,
+	quote: Boolean,
 });
 </script>
 <template>
@@ -27,6 +30,17 @@ defineProps({
 				solely on media queries at rigid device breakpoints, I use modern CSS functions like clamp(), min(), and max() for fluid typography
 				and container queries for truly modular, responsive components.
 			</p>
+			<picture class="bio-pic" v-if="bioPic">
+				<source type="image/webp" srcset="/img/Chris_Hardwick_200.webp" />
+				<source type="image/jpeg" srcset="/img/Chris_Hardwick_200.jpg" />
+				<img
+					src="/img/Chris_Hardwick_200.jpg"
+					title="Chris Hardwick, Web Designer"
+					alt="Chris Hardwick, Web Designer"
+					width="140"
+					height="140"
+				/>
+			</picture>
 			<p>
 				I treat media queries as a tool to enhance the layout when a design naturally breaks, while ensuring performance is optimized
 				through responsive images using srcset to keep load times fast on any device.
@@ -34,6 +48,10 @@ defineProps({
 			<p>
 				With a proven track record of collaborating across teams and working independently, I continue to launch successful, production web
 				ecosystems.
+			</p>
+			<p v-if="quote">
+				"I believe in the language of striking visuals, typography, and expressive color; an art as important to expression as words and
+				phrases. As a digital storyteller, I always seek evocative design elements that connect ideas with people." — Chris Hardwick
 			</p>
 		</div>
 		<a
@@ -77,7 +95,6 @@ strong {
 	justify-content: space-evenly;
 	align-items: center;
 	font-size: 1em;
-	/* z-index: 0; */
 }
 
 .linkedin .logo,
@@ -94,5 +111,16 @@ strong {
 }
 .linkedin .logo {
 	margin-left: 2em;
+}
+
+.bio-pic {
+	float: right;
+	width: 140px;
+	height: 140px;
+	margin: 1em;
+	border-radius: 0.5em;
+	border: 1px #333 solid;
+	object-fit: contain;
+	overflow: hidden;
 }
 </style>
