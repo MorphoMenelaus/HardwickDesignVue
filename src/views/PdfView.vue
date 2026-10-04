@@ -98,6 +98,7 @@ const handleResize = () => {
 watch([fitHeight, () => props.isMobile], ([newfitHeight, newIsMobile], [oldfitHeight, oldIsMobile]) => {
 	if (newfitHeight !== oldfitHeight) {
 		handleResize();
+		scrollToId('paging');
 	}
 	if (newIsMobile !== oldIsMobile) {
 		fitHeight.value = newIsMobile ? false : fitHeight.value;

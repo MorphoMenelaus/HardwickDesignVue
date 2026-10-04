@@ -14,8 +14,8 @@ defineProps({
 		</div>
 	</footer>
 	<div id="psuedo-footer">
-		<RouterLink to="/about" title="Contact Hardwick Web Design">
-			<h3 class="amaranth">Hardwick Web Design</h3>
+		<RouterLink to="/about#contact" title="Contact Hardwick Web Design">
+			<h3 class="amaranth"><span v-if="!isMobile">Contact </span>Hardwick Web Design</h3>
 		</RouterLink>
 	</div>
 </template>

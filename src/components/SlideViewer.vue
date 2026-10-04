@@ -180,7 +180,7 @@ onBeforeUnmount(() => {
 		max-width: 85vw;
 	}
 
-	.slide-buttons[data-v-8dd053fa] {
+	.slide-buttons {
 		bottom: -14em;
 	}
 

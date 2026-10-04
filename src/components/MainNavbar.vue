@@ -156,7 +156,7 @@ a.router-link-active {
 }
 
 .home-title {
-	width: calc(100vw - 9em);
+	width: calc(100vw - 6.5em);
 	display: flex;
 	align-self: center;
 	justify-content: center;

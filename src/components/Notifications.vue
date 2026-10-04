@@ -88,7 +88,7 @@ h2 {
 @media (min-width: 1024px) {
 	h2 {
 		font-size: 2.5em;
-		line-height: 3em;
+		/* line-height: 3em; */
 	}
 }
 </style>

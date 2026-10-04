@@ -116,6 +116,7 @@ onBeforeUnmount(() => {
 <style scoped>
 h4 {
 	font-size: 1.5em;
+	line-height: 2.2em;
 	text-align: center;
 }
 
@@ -130,7 +131,7 @@ p {
 
 #headline-container {
 	display: grid;
-	grid-template-columns: 1;
+	grid-template-columns: 1fr;
 	gap: 1em;
 	width: 95%;
 	margin: auto;
@@ -201,10 +202,6 @@ p {
 }
 
 @media (min-width: 768px) {
-	#headline-container {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
 	.cards {
 		grid-template-columns: repeat(3, 1fr);
 	}
@@ -217,6 +214,10 @@ p {
 }
 
 @media (min-width: 1024px) {
+	#headline-container {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
 	.cards {
 		grid-auto-rows: 25vw;
 	}
