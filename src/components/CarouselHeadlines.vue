@@ -39,12 +39,12 @@ const headlines = [
 	{
 		id: 6,
 		title: '',
-		headline: 'Extensive experience creating illustrations and parts-breakout diagrams for technical or instructional manuals',
+		headline: 'Extensive experience illustrating parts-breakout diagrams for technical or instructional manuals',
 	},
 	{
 		id: 7,
 		title: '',
-		headline: 'Custom responsive web development with emphasis on semantic design and ADA accessibility compliance (WCAG)',
+		headline: 'Custom responsive web development emphasizing semantic design and WCAG standards for accessibility',
 	},
 ];
 
@@ -52,7 +52,7 @@ const headlines = [
 const config = {
 	itemsToShow: 1.5,
 	snapAlign: 'center',
-	autoplay: 3000,
+	autoplay: 5000,
 	wrapAround: true, // Infinite scroll loop
 	breakpoints: {
 		768: { itemsToShow: 1.5, snapAlign: 'center' },

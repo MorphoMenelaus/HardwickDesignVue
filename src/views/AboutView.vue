@@ -13,14 +13,14 @@ import ProfSkills from '@/components/ProfSkills.vue';
 		<CarouselHeadlines />
 		<h1 class="page-header amaranth">About Hardwick Web Design</h1>
 		<div class="two-panel-grid">
-			<div class="two-panel-item">
-				<div id="form-header">
-					<h2 class="amaranth text-center">Contact Chris Hardwick</h2>
+			<div class="two-panel-item" id="contact">
+				<div class="form-header">
+					<h2 class="amaranth text-center">Contact</h2>
 				</div>
 				<Contact />
 			</div>
 			<div class="two-panel-item">
-				<div id="form-header">
+				<div class="form-header">
 					<h2 class="amaranth text-center">About Chris Hardwick</h2>
 					<h4>
 						More than 15 years experience delivering modern, clean production websites and graphic design assets with memorable branding.

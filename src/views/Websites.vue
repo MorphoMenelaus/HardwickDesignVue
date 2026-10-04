@@ -16,7 +16,7 @@ defineProps({
 					<p>
 						With years of custom responsive web design experience and an emphasis on semantic markup and WCAG standards for accessibility,
 						most any website / e-commerce need can be met.
-						<a href="/about" title="Get a quote">Get&nbsp;a&nbsp;quote</a> for your next project, today.
+						<a href="/about#contact" title="Get a quote">Get&nbsp;a&nbsp;quote</a> for your next project, today.
 					</p>
 					<p>
 						This website was created using modern web standards and technologies that perform high on SEO and render fast, reponsive and
