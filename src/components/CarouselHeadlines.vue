@@ -19,7 +19,7 @@ const headlines = [
 	{
 		id: 2,
 		title: '',
-		headline: 'More than 10 years building modern, responsive user interfaces and fluid user experiences',
+		headline: 'More than 10 years creating modern, responsive user interfaces and experiences',
 	},
 	{
 		id: 3,
@@ -29,7 +29,7 @@ const headlines = [
 	{
 		id: 4,
 		title: '',
-		headline: 'Building complete brand programs including logos, infographics, vector files, brochures, and digital assets',
+		headline: 'Building complete brand programs — logos, infographics, vector art, brochures, and digital assets',
 	},
 	{
 		id: 5,
@@ -52,7 +52,7 @@ const headlines = [
 const config = {
 	itemsToShow: 1.5,
 	snapAlign: 'center',
-	autoplay: 5000,
+	autoplay: 6000,
 	wrapAround: true, // Infinite scroll loop
 	breakpoints: {
 		768: { itemsToShow: 1.5, snapAlign: 'center' },
@@ -105,7 +105,7 @@ onBeforeUnmount(() => {
 
 <style>
 #headlines-container .carousel__item {
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	background-color: var(--wc-branding-accent-color);
 	background-color: rgb(131 153 193 / 60%);
 	background-image: radial-gradient(rgb(91 233 55 / 40%) 40%, rgb(41 38 163 / 30%) 90%);
@@ -140,21 +140,6 @@ onBeforeUnmount(() => {
 	user-select: none;
 }
 
-/* #headlines-container .carousel__item {
-	text-transform: uppercase;
-	background-color: var(--wc-branding-accent-color);
-	background-color: rgb(131 153 193 / 60%);
-	background-image: radial-gradient(rgb(91 233 55 / 40%) 40%, rgb(41 38 163 / 30%) 90%);
-	color: #ddd;
-	padding: 1em;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-	align-content: center;
-	font-weight: bold;
-	border-radius: 10px;
-} */
-
 .item-container {
 	background-image: linear-gradient(#0f438f, #020618);
 	border-radius: 8px;
@@ -171,83 +156,4 @@ onBeforeUnmount(() => {
 		font-size: 1.5em;
 	}
 }
-
-/* #carousel-container {
-	width: 100vw;
-	padding: 0;
-	margin: 0 auto;
-	position: absolute;
-	left: 0;
-	top: 0;
-} */
-
-/* .carousel__item {
-	min-height: 50vh;
-	width: 100%;
-	color: white;
-	font-size: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 8px;
-} */
-
-/* .carousel__item span {
-	position: absolute;
-	bottom: 0;
-	text-align: center;
-	background-color: rgb(5 14 56 / 70%);
-	padding: 0 0.8em;
-	color: var(--wc-branding-color);
-	width: 100%;
-	min-height: 4em;
-	align-content: center;
-	font-size: 1.1em;
-} */
-
-/* .carousel__item img {
-	width: 100%;
-	height: 50vh;
-	object-fit: cover;
-	border-width: 0 2px;
-	border-style: solid;
-} */
-
-/* .carousel__icon {
-	color: #000;
-	background-color: #fff;
-	border-radius: 10px;
-	transition:
-		background-color 300ms ease-in-out,
-		color 300ms ease-in-out;
-} */
-
-/* .carousel__prev,
-.carousel__next {
-	font-size: 4em;
-	width: 0.7em;
-	height: 0.7em;
-} */
-
-/* .carousel__pagination-button {
-	height: 0.6em;
-	background-color: var(--wc-branding-accent-color);
-} */
-
-/* .carousel__prev .carousel__icon {
-	border-radius: 0 10px 10px 0;
-}
-
-.carousel__next .carousel__icon {
-	border-radius: 10px 0 0 10px;
-}
-
-.carousel__pagination-button--active {
-	background-color: #5611bd;
-}
-
-.carousel__icon:hover {
-	color: #a8befb;
-	background-color: #4b4f8c;
-} */
 </style>

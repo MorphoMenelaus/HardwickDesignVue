@@ -63,7 +63,7 @@ onMounted(() => {
 	padding: 0;
 	margin: 0 auto;
 	left: 0;
-	top: 0; */
+	top: 0;
 	user-select: none;
 }
 

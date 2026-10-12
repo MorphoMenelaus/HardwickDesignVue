@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import { sendAnalyticsEvent } from '@/dependencies/csh-libs.js';
 import HomeView from '../views/HomeView.vue';
 
 const router = createRouter({
-	history: createWebHistory(import.meta.env.BASE_URL),
+	history: createWebHistory(),
 	routes: [
 		{
 			path: '/',
@@ -68,6 +69,10 @@ const router = createRouter({
 		// Otherwise, always scroll to the top of the page
 		return { top: 0 };
 	},
+});
+
+router.beforeEach((to) => {
+	sendAnalyticsEvent('router_navigate', `to_${to.href}`);
 });
 
 export default router;

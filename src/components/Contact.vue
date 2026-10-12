@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref, provide, inject, watch, onBeforeUnmount } from 'vue';
+import { sendAnalyticsEvent } from '@/dependencies/csh-libs.js';
 import Notifications from '@/components/Notifications.vue';
 
 const props = defineProps({
@@ -98,6 +99,7 @@ const sendEmail = async () => {
 			subject.value = '';
 			message.value = '';
 			charRemaining.value = maxlength;
+			sendAnalyticsEvent('contact_email_sent', 'contact_about_page');
 		}
 	} catch (error) {
 		console.error('Error posting data:', error.message);

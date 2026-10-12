@@ -72,15 +72,15 @@
 
 .linkedin-icon::after {
 	border-radius: 4px;
-	background: url(../img/linkedIn_logo.png) 0 0 / contain no-repeat;
+	background: url(/img/linkedIn_logo.png) 0 0 / contain no-repeat;
 }
 
 .email-icon::after {
-	background: url(../img/email_send.png) 0 0 / contain no-repeat;
+	background: url(/img/email_send.png) 0 0 / contain no-repeat;
 }
 
 .personal-icon::after {
-	background: url(../img/Chris_Hardwick_200.jpg) 0 0 / contain no-repeat;
+	background: url(/img/Chris_Hardwick_200.jpg) 0 0 / contain no-repeat;
 }
 
 .fade-enter-active,

@@ -2,6 +2,7 @@
 import { ref, watch, onBeforeUnmount } from 'vue';
 import { onBeforeRouteUpdate } from 'vue-router';
 import VuePdfEmbed from 'vue-pdf-embed';
+import { sendAnalyticsEvent } from '@/dependencies/csh-libs.js';
 import Copyright from '@/components/Copyright.vue';
 import pdfs from '@/dependencies/pdfFileList.json';
 
@@ -74,6 +75,7 @@ const handleSource = (source) => {
 	pdfSource.value = source;
 	let pageingId = props.isMobile ? 'pdf-container' : 'paging';
 	scrollToId(pageingId);
+	sendAnalyticsEvent('select_pdf', source);
 };
 const scrollToId = (id) => {
 	const element = document.getElementById(id);

@@ -7,6 +7,7 @@ const props = defineProps({
 	slideIndex: Number,
 });
 
+const showHideLoader = ref(false);
 const slideIndex = inject('slideIndex');
 const imageData = ref({});
 
@@ -27,9 +28,11 @@ const prevSlide = () => {
 const keyDown = (event) => {
 	switch (event.key) {
 		case 'ArrowRight':
+			showHideLoader.value = true;
 			nextSlide();
 			break;
 		case 'ArrowLeft':
+			showHideLoader.value = true;
 			prevSlide();
 			break;
 		case 'Escape':
@@ -42,6 +45,7 @@ watch(
 	() => props.slideIndex,
 	(newIndex) => {
 		if (newIndex !== null && newIndex < props.slideArray.length) {
+			showHideLoader.value = true;
 			imageData.value = props.slideArray[newIndex];
 		} else {
 			imageData.value = {};
@@ -52,6 +56,7 @@ watch(
 onMounted(() => {
 	imageData.value = props.slideArray[props.slideIndex];
 	window.addEventListener('keydown', keyDown);
+	showHideLoader.value = true;
 });
 
 onBeforeUnmount(() => {
@@ -63,10 +68,19 @@ onBeforeUnmount(() => {
 	<div id="viewer">
 		<div>
 			<div class="slide-wrapper">
+				<div id="loading-img" :class="showHideLoader ? 'loading' : ''">
+					<div class="spinner-comet"></div>
+				</div>
 				<picture>
 					<source :srcset="`${imageData.fullSize}.webp`" type="image/webp" />
 					<source :srcset="`${imageData.fullSize}.jpg`" type="image/jpeg" />
-					<img class="slide-image" :src="`${imageData.fullSize}.jpg`" :alt="imageData.alt" :title="imageData.title" />
+					<img
+						class="slide-image"
+						:src="`${imageData.fullSize}.jpg`"
+						:alt="imageData.alt"
+						:title="imageData.title"
+						@load="showHideLoader = false"
+					/>
 				</picture>
 				<button class="btn close" @click="slideIndex(null)" title="Close">✕</button>
 				<span v-if="!isMobile" class="slide-title">{{ imageData.title }}</span>
@@ -173,6 +187,20 @@ onBeforeUnmount(() => {
 	color: #333;
 	background-color: #a9ccd4;
 	border-radius: 0 0 0.3em 0.3em;
+}
+
+#loading-img {
+	position: absolute;
+	inset: 0;
+	display: none;
+	height: 100%;
+	align-items: center;
+	justify-items: center;
+	background: rgb(0 0 0 / 50%);
+}
+
+#loading-img.loading {
+	display: grid;
 }
 
 @media (max-width: 1023px) {
