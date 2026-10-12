@@ -4,14 +4,14 @@ const copyright = `Copyright &copy;${new Date().getFullYear()} Chris Hardwick, A
 <template>
 	<p class="copyright-notice">
 		<span>Website design by</span>
-		<a href="https://hardwick.design" title="Visit Hardwick Design" target="_blank" rel="noreferrer">
+		<RouterLink to="/about#contact" title="Visit Hardwick Design" target="_blank" rel="noreferrer">
 			<picture>
 				<source type="image/webp" srcset="/icons/CSHorb-0border-32.webp" width="32" height="32" />
 				<source type="image/png" srcset="/icons/CSHorb-0border-32.png" width="32" height="32" />
 				<img src="/icons/CSHorb-0border-32.png" alt="Visit Hardwick Design" width="32" height="32" />
 			</picture>
 			Hardwick Design
-		</a>
+		</RouterLink>
 	</p>
 	<p v-html="copyright" class="text-center copyright"></p>
 </template>

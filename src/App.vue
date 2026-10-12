@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router';
 import SlideViewer from '@/components/SlideViewer.vue';
 import MainHeader from '@/components/MainHeader.vue';
 import MainNavbar from '@/components/MainNavbar.vue';
-import MainFooter from './components/MainFooter.vue';
+import MainFooter from '@/components/MainFooter.vue';
 
 // const baseUrl = inject('baseUrl');
 const showHideLoader = ref(false);

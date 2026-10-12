@@ -8,9 +8,10 @@
 				<li>HTML5</li>
 				<li>CSS3</li>
 				<li>JavaScript</li>
+				<li>Vue / React Framworks</li>
+				<li>Single Page Applications</li>
 				<li>jQuery</li>
 				<li>ChartJS</li>
-				<li>Single Page Applications</li>
 				<li>SEO</li>
 			</ul>
 		</div>

@@ -16,7 +16,7 @@ defineProps({
 					<p>
 						With years of custom responsive web design experience and an emphasis on semantic markup and WCAG standards for accessibility,
 						most any website / e-commerce need can be met.
-						<a href="/about#contact" title="Get a quote">Get&nbsp;a&nbsp;quote</a> for your next project, today.
+						<RouterLink to="/about#contact" title="Get a quote">Get&nbsp;a&nbsp;quote</RouterLink> for your next project, today.
 					</p>
 					<p>
 						This website was created using modern web standards and technologies that perform high on SEO and render fast, reponsive and
@@ -125,8 +125,8 @@ defineProps({
 				</h2>
 				<div class="panel-inner">
 					<p>
-						This photography blog is a WordPress&dash;based website. When a client prefers a WordPress CMS, that can be accommodated.
-						Using customized themes or a theme of your choice, any needs can be met.
+						This photography blog is a WordPress&dash;based website. When a client prefers a WordPress CMS, that can be accommodated. Using
+						customized themes or a theme of your choice, any need can be met.
 					</p>
 					<p>I also consult on WordPress setups and customizations.</p>
 					<picture>
