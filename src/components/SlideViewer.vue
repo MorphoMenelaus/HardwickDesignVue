@@ -197,6 +197,8 @@ onBeforeUnmount(() => {
 	align-items: center;
 	justify-items: center;
 	background: rgb(0 0 0 / 50%);
+	overflow: hidden;
+	border-radius: 12px;
 }
 
 #loading-img.loading {

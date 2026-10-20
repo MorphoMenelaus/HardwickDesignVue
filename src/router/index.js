@@ -71,6 +71,18 @@ const router = createRouter({
 	},
 });
 
+router.beforeEach((to, from) => {
+	// Force Canonical Route
+	// Strips trailing slash and triggers a clean redirect loop before permission parsing
+	if (to.path !== '/' && to.path.endsWith('/')) {
+		return {
+			path: to.path.slice(0, -1),
+			query: to.query,
+			hash: to.hash,
+		};
+	}
+});
+
 router.beforeEach((to) => {
 	sendAnalyticsEvent('router_navigate', `to_${to.href}`);
 });
