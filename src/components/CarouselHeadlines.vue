@@ -52,7 +52,7 @@ const headlines = [
 const config = {
 	itemsToShow: 1.5,
 	snapAlign: 'center',
-	autoplay: 6000,
+	autoplay: 4000,
 	wrapAround: true, // Infinite scroll loop
 	breakpoints: {
 		768: { itemsToShow: 1.5, snapAlign: 'center' },
