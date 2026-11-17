@@ -12,11 +12,11 @@
 				<li>Single Page Applications</li>
 				<li>jQuery</li>
 				<li>ChartJS</li>
-				<li>SEO</li>
 			</ul>
 		</div>
 		<div>
 			<ul>
+				<li>SEO</li>
 				<li>WCAG / ADA accessibility</li>
 				<li>Adobe&nbsp;Creative Suite</li>
 				<li>Adobe&nbsp;Photoshop</li>
@@ -24,8 +24,6 @@
 				<li>Adobe&nbsp;Illustrator</li>
 				<li>Adobe&nbsp;Dreamweaver</li>
 				<li>Adobe&nbsp;Lightroom</li>
-				<li>Adobe&nbsp;Premiere</li>
-				<li>After&nbsp;Effects</li>
 			</ul>
 		</div>
 	</div>

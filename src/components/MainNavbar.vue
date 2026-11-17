@@ -1,6 +1,5 @@
 <script setup>
 import { ref, inject, onMounted, onUnmounted, nextTick } from 'vue';
-import HalloweenOvelay from '@/components/HalloweenOvelay.vue';
 
 defineProps({
 	isMobile: Boolean,
@@ -82,7 +81,6 @@ onUnmounted(() => {
 					<RouterLink to="/about" title="About">Contact / About</RouterLink>
 				</div>
 			</div>
-			<HalloweenOvelay v-if="!isMobile" />
 		</nav>
 	</Transition>
 </template>
